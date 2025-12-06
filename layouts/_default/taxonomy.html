@@ -1,0 +1,35 @@
+{{ define "main" }}
+<div class="space-y-8">
+  <header>
+    <h1 class="text-4xl font-bold text-gray-900 dark:text-white">
+      <span class="text-gray-500 dark:text-gray-400">#</span>{{ .Title }}
+    </h1>
+    <p class="mt-2 text-gray-600 dark:text-gray-300">
+      {{ len .Pages }} {{ if eq (len .Pages) 1 }}post{{ else }}posts{{ end }} tagged with "{{ .Title }}"
+    </p>
+  </header>
+
+  {{- /* List of pages with this term */ -}}
+  <div class="space-y-4">
+    {{ range .Pages }}
+    <article class="group">
+      <a href="{{ .Permalink }}" class="block p-4 -mx-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <div class="flex items-center gap-3">
+            <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded capitalize">{{ .Section }}</span>
+            <h2 class="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              {{ .Title }}
+            </h2>
+          </div>
+          {{ if .Date }}
+          <time datetime="{{ .Date.Format "2006-01-02" }}" class="text-sm text-gray-500 dark:text-gray-400 shrink-0">
+            {{ .Date.Format "Jan 2, 2006" }}
+          </time>
+          {{ end }}
+        </div>
+      </a>
+    </article>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

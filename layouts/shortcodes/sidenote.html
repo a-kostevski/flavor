@@ -1,0 +1,12 @@
+{{- $id := printf "%02d" (add .Ordinal 1) -}}
+
+<label for="sidenote-{{ $id }}" class="sidenote-mark cursor-pointer text-blue-600 dark:text-blue-400" tabindex="0" role="button" aria-details="sidenote-content-{{ $id }}">
+  <sup class="font-semibold">{{ $id }}</sup>
+</label>
+<input type="checkbox" id="sidenote-{{ $id }}" class="sidenote-checkbox sr-only" aria-hidden="true" />
+<small id="sidenote-content-{{ $id }}" class="sidenote text-sm text-gray-600 dark:text-gray-400 lg:float-right lg:clear-right lg:w-48 lg:mr-[-13rem] lg:mt-0 mt-2 mb-2 block lg:block bg-gray-50 dark:bg-gray-800 p-2 rounded lg:bg-transparent lg:dark:bg-transparent lg:p-0">
+  <span class="sr-only">(sidenote: </span>
+  <sup class="font-semibold text-blue-600 dark:text-blue-400 lg:inline hidden">{{ $id }}</sup>
+  {{ .Inner | markdownify }}
+  <span class="sr-only">)</span>
+</small>

@@ -1,0 +1,24 @@
+{{- $type := .Get "type" | default "note" -}}
+{{- $title := .Get "title" -}}
+
+{{- /* Type configurations */ -}}
+{{- $types := dict
+  "note" (dict "icon" "info" "title" "Note" "classes" "bg-blue-50 border-blue-500 dark:bg-blue-900/20 dark:border-blue-400")
+  "info" (dict "icon" "info" "title" "Info" "classes" "bg-blue-50 border-blue-500 dark:bg-blue-900/20 dark:border-blue-400")
+  "tip" (dict "icon" "lightbulb" "title" "Tip" "classes" "bg-green-50 border-green-500 dark:bg-green-900/20 dark:border-green-400")
+  "warning" (dict "icon" "alert" "title" "Warning" "classes" "bg-amber-50 border-amber-500 dark:bg-amber-900/20 dark:border-amber-400")
+  "danger" (dict "icon" "x-circle" "title" "Danger" "classes" "bg-red-50 border-red-500 dark:bg-red-900/20 dark:border-red-400")
+-}}
+
+{{- $config := index $types $type | default (index $types "note") -}}
+{{- $displayTitle := $title | default $config.title -}}
+
+<figure class="admonition not-prose rounded-lg p-4 mb-4 border-l-4 {{ $config.classes }}">
+  <figcaption class="flex items-center gap-2 font-semibold mb-2 text-gray-900 dark:text-white">
+    {{- partial (printf "svg/%s.html" $config.icon) . -}}
+    <span>{{ $displayTitle }}</span>
+  </figcaption>
+  <div class="prose dark:prose-invert prose-sm max-w-none">
+    {{ .Inner | markdownify }}
+  </div>
+</figure>

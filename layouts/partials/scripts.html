@@ -1,0 +1,40 @@
+{{- /* Main scripts via Hugo Pipes */ -}}
+{{ $js := resources.Get "js/main.js" }}
+{{ if hugo.IsProduction }}
+  {{ $js = $js | minify | fingerprint }}
+{{ end }}
+<script src="{{ $js.RelPermalink }}" defer></script>
+
+{{- /* Code copy button */ -}}
+{{ if .Site.Params.ShowCodeCopyButtons }}
+<script>
+  document.querySelectorAll('pre > code').forEach(codeBlock => {
+    const pre = codeBlock.parentNode;
+    const wrapper = document.createElement('div');
+    wrapper.className = 'relative group';
+    pre.parentNode.insertBefore(wrapper, pre);
+    wrapper.appendChild(pre);
+
+    const button = document.createElement('button');
+    button.className = 'absolute top-2 right-2 p-2 rounded bg-gray-700 text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity text-xs';
+    button.textContent = 'Copy';
+    button.addEventListener('click', () => {
+      navigator.clipboard.writeText(codeBlock.textContent);
+      button.textContent = 'Copied!';
+      setTimeout(() => button.textContent = 'Copy', 2000);
+    });
+    wrapper.appendChild(button);
+  });
+</script>
+{{ end }}
+
+{{- /* Mermaid diagrams support */ -}}
+{{ if .Store.Get "hasMermaid" }}
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: document.documentElement.classList.contains('dark') ? 'dark' : 'neutral'
+  });
+</script>
+{{ end }}

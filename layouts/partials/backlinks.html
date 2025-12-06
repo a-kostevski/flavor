@@ -1,0 +1,40 @@
+{{- if .Site.Params.showBacklinks -}}
+{{- $backlinks := slice -}}
+{{- $currentPage := . -}}
+{{- $currentRelPermalink := .RelPermalink -}}
+
+{{- /* Find pages that link to this page */ -}}
+{{- range .Site.RegularPages -}}
+  {{- if ne .RelPermalink $currentRelPermalink -}}
+    {{- /* Check if this page's content contains a link to the current page */ -}}
+    {{- if or (findRE (printf `href=["']%s["']` $currentRelPermalink) .RawContent) (findRE (printf `\[.*\]\(%s\)` $currentRelPermalink) .RawContent) (findRE (printf `href=["']%s["']` $currentPage.Permalink) .RawContent) -}}
+      {{- $backlinks = $backlinks | append . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if gt (len $backlinks) 0 -}}
+<aside class="backlinks not-prose mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+  <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+    {{ partial "svg/backlink.html" . }}
+    {{ i18n "backlinks" }}
+    <span class="text-sm font-normal text-gray-500 dark:text-gray-400">({{ len $backlinks }})</span>
+  </h2>
+  <ul class="space-y-3">
+    {{- range $backlinks -}}
+    <li class="flex items-start gap-3">
+      <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded capitalize shrink-0 mt-0.5">{{ .Section }}</span>
+      <div>
+        <a href="{{ .RelPermalink }}" class="text-blue-600 dark:text-blue-400 hover:underline font-medium">
+          {{ .Title }}
+        </a>
+        {{ with .Summary }}
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1 line-clamp-2">{{ . | truncate 120 }}</p>
+        {{ end }}
+      </div>
+    </li>
+    {{- end -}}
+  </ul>
+</aside>
+{{- end -}}
+{{- end -}}

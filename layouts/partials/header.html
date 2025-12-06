@@ -1,0 +1,32 @@
+<header class="py-6 border-b border-gray-200 dark:border-gray-700">
+  <nav class="flex items-center justify-between flex-wrap gap-4">
+    {{- /* Site title / logo */ -}}
+    <a href="{{ .Site.BaseURL }}" class="text-xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+      {{ .Site.Title }}
+    </a>
+
+    {{- /* Mobile menu button */ -}}
+    <button id="menu-toggle" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle menu">
+      {{ partial "svg/menu.html" }}
+    </button>
+
+    {{- /* Navigation links */ -}}
+    <div id="nav-menu" class="hidden lg:flex items-center gap-6 w-full lg:w-auto">
+      {{ range .Site.Menus.main }}
+      <a href="{{ .URL }}" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors{{ if $.IsMenuCurrent "main" . }} font-semibold text-gray-900 dark:text-white{{ end }}">
+        {{ .Name }}
+      </a>
+      {{ end }}
+
+      {{- /* Language switcher (temporarily hidden)
+      {{ partial "language-switcher.html" . }}
+      */ -}}
+
+      {{- /* Dark mode toggle */ -}}
+      <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
+        <span class="dark:hidden">{{ partial "svg/moon.html" }}</span>
+        <span class="hidden dark:inline">{{ partial "svg/sun.html" }}</span>
+      </button>
+    </div>
+  </nav>
+</header>

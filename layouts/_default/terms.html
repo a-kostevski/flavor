@@ -1,0 +1,24 @@
+{{ define "main" }}
+<div class="space-y-8">
+  <header>
+    <h1 class="text-4xl font-bold text-gray-900 dark:text-white">{{ .Title }}</h1>
+    {{ with .Description }}
+    <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">{{ . }}</p>
+    {{ end }}
+  </header>
+
+  {{- /* Tags cloud */ -}}
+  <div class="flex flex-wrap gap-3">
+    {{ range .Data.Terms.Alphabetical }}
+    <a href="{{ .Page.Permalink }}" class="group flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 hover:bg-blue-100 dark:hover:bg-blue-900 rounded-lg transition-colors">
+      <span class="text-gray-900 dark:text-white group-hover:text-blue-700 dark:group-hover:text-blue-300 font-medium">
+        {{ .Page.Title }}
+      </span>
+      <span class="text-xs px-2 py-0.5 bg-gray-200 dark:bg-gray-700 group-hover:bg-blue-200 dark:group-hover:bg-blue-800 rounded-full text-gray-600 dark:text-gray-400 group-hover:text-blue-700 dark:group-hover:text-blue-300">
+        {{ .Count }}
+      </span>
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

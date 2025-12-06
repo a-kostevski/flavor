@@ -1,0 +1,12 @@
+name = "flavor"
+license = "MIT"
+licenselink = "https://github.com/a-kostevski/blog/blob/main/LICENSE"
+description = "A minimal Hugo theme with Tailwind CSS, inspired by hugo-theme-til"
+homepage = "https://github.com/a-kostevski/blog"
+tags = ["blog", "minimal", "tailwind", "dark mode", "responsive"]
+features = ["admonitions", "sidenotes", "content-graph", "backlinks", "dark-mode"]
+min_version = "0.116.0"
+
+[author]
+  name = "Anton Kostevski"
+  homepage = "https://github.com/a-kostevski"
