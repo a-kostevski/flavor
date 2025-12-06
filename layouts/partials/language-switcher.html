@@ -1,0 +1,21 @@
+{{ if hugo.IsMultilingual }}
+<div class="flex items-center gap-2">
+  {{ $currentLang := .Site.Language.Lang }}
+  {{ range .Site.Languages }}
+    {{ $flag := "" }}
+    {{ if eq .Lang "en" }}{{ $flag = "🇬🇧" }}{{ end }}
+    {{ if eq .Lang "sv" }}{{ $flag = "🇸🇪" }}{{ end }}
+
+    {{ if eq .Lang $currentLang }}
+      <span class="text-lg opacity-100" title="{{ .LanguageName }}">{{ $flag }}</span>
+    {{ else }}
+      {{ $translation := index $.Translations 0 }}
+      {{ if $translation }}
+        <a href="{{ $translation.Permalink }}" class="text-lg opacity-50 hover:opacity-100 transition-opacity" title="{{ .LanguageName }}">{{ $flag }}</a>
+      {{ else }}
+        <a href="/{{ .Lang }}/" class="text-lg opacity-50 hover:opacity-100 transition-opacity" title="{{ .LanguageName }}">{{ $flag }}</a>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }}
