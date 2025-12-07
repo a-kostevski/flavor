@@ -1,0 +1,137 @@
+{{- $data := site.Data.wishlist -}}
+{{- $lang := site.Language.Lang -}}
+
+<div class="wishlist-content">
+  <h2>{{ i18n "wishlist_nerdy" }}</h2>
+
+  {{- range $data.categories -}}
+    {{- $catId := .id -}}
+
+    <h3>{{ i18n (printf "wishlist_%s" $catId) }}</h3>
+
+    {{- /* Category intro text from data */ -}}
+    {{- $intro := "" -}}
+    {{- if eq $lang "sv" -}}
+      {{- $intro = .intro_sv | default .intro_en -}}
+    {{- else -}}
+      {{- $intro = .intro_en -}}
+    {{- end -}}
+    {{- with $intro }}
+    <p class="text-gray-600 dark:text-gray-300 mb-4">{{ . | markdownify }}</p>
+    {{- end -}}
+
+    {{- /* Direct items (no subsections) */ -}}
+    {{- with .items }}
+    <ul class="list-disc pl-6 mb-6">
+      {{- range . -}}
+        {{- $name := .name -}}
+        {{- if and (eq $lang "sv") .name_sv -}}
+          {{- $name = .name_sv -}}
+        {{- end -}}
+        <li class="mb-2">
+          {{- if .featured }}<strong>{{ end -}}
+          <a href="{{ .url }}" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank" rel="noopener">
+            {{- $name -}}
+          </a>
+          {{- if .featured }}</strong>{{ end -}}
+          {{- with .quantity }} x {{ . }}{{ end -}}
+          {{- if .price }}
+            <span class="text-gray-500 dark:text-gray-400 text-sm ml-1">
+              ({{ i18n "wishlist_price_approx" }} {{ .price }} kr{{ with .recurring }}{{ i18n "wishlist_price_per_year" }}{{ end }})
+            </span>
+          {{- end }}
+          {{- with .vendor }}
+            <span class="text-gray-400 dark:text-gray-500 text-sm"> from {{ . }}</span>
+          {{- end }}
+          {{- $desc := "" -}}
+          {{- if eq $lang "sv" -}}
+            {{- $desc = .desc_sv | default .desc_en -}}
+          {{- else -}}
+            {{- $desc = .desc_en -}}
+          {{- end -}}
+          {{- with $desc }}
+          <br><span class="text-gray-600 dark:text-gray-300 text-sm">- {{ . }}</span>
+          {{- end }}
+          {{- with .extra_url }}
+          <br><a href="{{ . }}" class="text-gray-500 dark:text-gray-400 text-xs hover:underline break-all" target="_blank" rel="noopener">{{ . }}</a>
+          {{- end }}
+        </li>
+      {{- end -}}
+    </ul>
+    {{- end -}}
+
+    {{- /* Subsections */ -}}
+    {{- range .subsections -}}
+      {{- $subId := .id -}}
+      <p class="font-semibold text-gray-700 dark:text-gray-200 mt-4 mb-2">
+        {{ i18n (printf "wishlist_%s_%s" $catId $subId) }}:
+      </p>
+      <ul class="list-disc pl-6 mb-6">
+        {{- range .items -}}
+          {{- $name := .name -}}
+          {{- if and (eq $lang "sv") .name_sv -}}
+            {{- $name = .name_sv -}}
+          {{- end -}}
+          <li class="mb-2">
+            {{- if .featured }}<strong>{{ end -}}
+            <a href="{{ .url }}" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank" rel="noopener">
+              {{- $name -}}
+            </a>
+            {{- if .featured }}</strong>{{ end -}}
+            {{- with .quantity }} x {{ . }}{{ end -}}
+            {{- if .price }}
+              <span class="text-gray-500 dark:text-gray-400 text-sm ml-1">
+                ({{ i18n "wishlist_price_approx" }} {{ .price }} kr{{ with .recurring }}{{ i18n "wishlist_price_per_year" }}{{ end }})
+              </span>
+            {{- end }}
+            {{- with .vendor }}
+              <span class="text-gray-400 dark:text-gray-500 text-sm"> from {{ . }}</span>
+            {{- end }}
+            {{- $desc := "" -}}
+            {{- if eq $lang "sv" -}}
+              {{- $desc = .desc_sv | default .desc_en -}}
+            {{- else -}}
+              {{- $desc = .desc_en -}}
+            {{- end -}}
+            {{- with $desc }}
+            <br><span class="text-gray-600 dark:text-gray-300 text-sm">- {{ . }}</span>
+            {{- end }}
+            {{- with .extra_url }}
+            <br><a href="{{ . }}" class="text-gray-500 dark:text-gray-400 text-xs hover:underline break-all" target="_blank" rel="noopener">{{ . }}</a>
+            {{- end }}
+          </li>
+        {{- end -}}
+      </ul>
+    {{- end -}}
+
+  {{- end -}}
+
+  <hr class="my-8">
+
+  <h2>{{ i18n "wishlist_retailers" }}</h2>
+  {{- $retailersIntro := "" -}}
+  {{- if eq $lang "sv" -}}
+    {{- $retailersIntro = $data.retailers_intro_sv | default $data.retailers_intro_en -}}
+  {{- else -}}
+    {{- $retailersIntro = $data.retailers_intro_en -}}
+  {{- end -}}
+  <p class="text-gray-600 dark:text-gray-300 mb-4">{{ $retailersIntro }}</p>
+  <ul class="list-disc pl-6">
+    {{- range $data.retailers -}}
+    <li class="mb-1">
+      <a href="{{ .url }}" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank" rel="noopener">
+        {{- .name -}}
+      </a>
+      {{- $desc := "" -}}
+      {{- if eq $lang "sv" -}}
+        {{- $desc = .desc_sv | default .desc_en -}}
+      {{- else -}}
+        {{- $desc = .desc_en -}}
+      {{- end -}}
+      {{- with $desc }}
+      <span class="text-gray-500 dark:text-gray-400"> - {{ . }}</span>
+      {{- end }}
+    </li>
+    {{- end -}}
+  </ul>
+</div>
