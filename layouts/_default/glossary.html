@@ -1,0 +1,87 @@
+{{ define "main" }}
+<article class="prose prose-lg dark:prose-invert prose-blue max-w-none">
+  <header class="mb-8 not-prose">
+    <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">{{ .Title }}</h1>
+    {{ with .Description }}
+    <p class="text-lg text-gray-600 dark:text-gray-400">{{ . }}</p>
+    {{ end }}
+  </header>
+
+  {{- /* Collect all definitions from site pages */ -}}
+  {{- $definitions := slice -}}
+  {{- range where .Site.RegularPages "Kind" "page" -}}
+    {{- $page := . -}}
+    {{- $content := .Content -}}
+    {{- /* Extract terms from data-def-term attributes */ -}}
+    {{- $matches := findRE `data-def-term="([^"]+)"` $content -}}
+    {{- range $matches -}}
+      {{- $term := replaceRE `data-def-term="([^"]+)"` "$1" . -}}
+      {{- /* Extract the definition body - find the corresponding dd content */ -}}
+      {{- $defPattern := printf `data-def-term="%s"[^>]*>.*?<dd[^>]*>(.*?)</dd>` $term -}}
+      {{- $defMatches := findRE $defPattern $content -}}
+      {{- $defBody := "" -}}
+      {{- range $defMatches -}}
+        {{- $defBody = replaceRE $defPattern "$1" . -}}
+      {{- end -}}
+      {{- $definitions = $definitions | append (dict "term" $term "definition" $defBody "page" $page) -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- /* Sort definitions alphabetically by term */ -}}
+  {{- $sortedDefs := sort $definitions "term" -}}
+
+  {{- /* Group by first letter */ -}}
+  {{- $currentLetter := "" -}}
+
+  {{ if $sortedDefs }}
+  {{- /* Quick jump navigation */ -}}
+  <nav class="not-prose mb-8 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+    <p class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Jump to:</p>
+    <div class="flex flex-wrap gap-2">
+      {{- $letters := slice -}}
+      {{- range $sortedDefs -}}
+        {{- $firstLetter := upper (substr .term 0 1) -}}
+        {{- if not (in $letters $firstLetter) -}}
+          {{- $letters = $letters | append $firstLetter -}}
+        {{- end -}}
+      {{- end -}}
+      {{- range $letters -}}
+      <a href="#letter-{{ . }}" class="px-3 py-1 text-sm font-medium bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded hover:bg-violet-200 dark:hover:bg-violet-900/50 transition-colors">{{ . }}</a>
+      {{- end -}}
+    </div>
+  </nav>
+
+  <div class="not-prose space-y-8">
+    {{- range $sortedDefs -}}
+      {{- $firstLetter := upper (substr .term 0 1) -}}
+      {{- if ne $firstLetter $currentLetter -}}
+        {{- $currentLetter = $firstLetter -}}
+        <h2 id="letter-{{ $currentLetter }}" class="text-2xl font-bold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2 pt-4">{{ $currentLetter }}</h2>
+      {{- end -}}
+
+      <dl class="definition rounded-lg p-4 border-l-4 border-violet-500 bg-violet-50 dark:bg-violet-900/20 dark:border-violet-400">
+        <dt class="definition-term flex items-center gap-2 font-bold text-violet-700 dark:text-violet-300 mb-2">
+          {{- partial "svg/book.html" . -}}
+          <span>{{ .term }}</span>
+        </dt>
+        <dd class="definition-body text-gray-700 dark:text-gray-300 mb-2">
+          {{ .definition | safeHTML }}
+        </dd>
+        <dd class="text-sm text-gray-500 dark:text-gray-400">
+          Defined in: <a href="{{ .page.Permalink }}#def-{{ .term | anchorize }}" class="text-violet-600 dark:text-violet-400 hover:underline">{{ .page.Title }}</a>
+        </dd>
+      </dl>
+    {{- end -}}
+  </div>
+  {{ else }}
+  <p class="text-gray-500 dark:text-gray-400">No definitions found. Use the <code>def</code> shortcode in your content to add definitions.</p>
+  {{ end }}
+
+  {{- /* Page content if any */ -}}
+  {{ with .Content }}
+  <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+    {{ . }}
+  </div>
+  {{ end }}
+</article>
+{{ end }}

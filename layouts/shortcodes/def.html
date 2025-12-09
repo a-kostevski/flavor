@@ -1,0 +1,16 @@
+{{- $title := .Get "title" -}}
+{{- $id := .Get "id" | default ($title | anchorize) -}}
+
+{{- if not $title -}}
+  {{- errorf "The 'def' shortcode requires a 'title' parameter. See %s" .Position -}}
+{{- end -}}
+
+<dl class="definition not-prose rounded-lg p-4 mb-4 border-l-4 border-violet-500 bg-violet-50 dark:bg-violet-900/20 dark:border-violet-400" id="def-{{ $id }}" data-def-term="{{ $title }}">
+  <dt class="definition-term flex items-center gap-2 font-bold text-violet-700 dark:text-violet-300 mb-2">
+    {{- partial "svg/book.html" . -}}
+    <span>{{ $title }}</span>
+  </dt>
+  <dd class="definition-body prose dark:prose-invert prose-sm max-w-none text-gray-700 dark:text-gray-300">
+    {{ .Inner | markdownify }}
+  </dd>
+</dl>

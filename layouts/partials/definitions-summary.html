@@ -1,0 +1,33 @@
+{{- /*
+  Definitions Summary Partial
+
+  Displays a collapsible summary of all definitions on the current page.
+  Enable via front-matter: showDefinitions: true
+
+  Usage in single.html:
+  {{ if .Params.showDefinitions }}
+    {{ partial "definitions-summary.html" . }}
+  {{ end }}
+*/ -}}
+
+{{- $content := .Content -}}
+{{- $matches := findRE `data-def-term="([^"]+)"` $content -}}
+
+{{- if $matches -}}
+<details class="definitions-summary not-prose mb-8 border border-violet-200 dark:border-violet-800 rounded-lg overflow-hidden">
+  <summary class="cursor-pointer font-medium p-4 bg-violet-50 dark:bg-violet-900/30 hover:bg-violet-100 dark:hover:bg-violet-900/50 transition-colors flex items-center gap-2 text-violet-700 dark:text-violet-300">
+    {{- partial "svg/book.html" . -}}
+    <span>Definitions on this page ({{ len $matches }})</span>
+  </summary>
+  <div class="p-4 bg-white dark:bg-gray-900">
+    <ul class="space-y-2">
+      {{- range $matches -}}
+        {{- $term := replaceRE `data-def-term="([^"]+)"` "$1" . -}}
+        <li>
+          <a href="#def-{{ $term | anchorize }}" class="text-violet-600 dark:text-violet-400 hover:underline font-medium">{{ $term }}</a>
+        </li>
+      {{- end -}}
+    </ul>
+  </div>
+</details>
+{{- end -}}

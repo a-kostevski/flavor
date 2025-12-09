@@ -8,6 +8,10 @@ tags: ["learning", "note-taking", "productivity"]
 description: "A technique for distilling notes over multiple passes, highlighting the most valuable insights."
 ---
 
+{{< def title="Progressive Summarization" >}}
+A method developed by Tiago Forte for extracting value from notes through multiple passes over time. Rather than processing everything upfront, notes are distilled progressively through layers of highlighting and summarization as they prove useful.
+{{< /def >}}
+
 Progressive summarization is Tiago Forte's method for extracting value from notes over time. Instead of processing everything upfront, you distill notes progressively as you use them.
 
 ## The Layers

@@ -8,6 +8,10 @@ tags: ["zettelkasten", "note-taking", "knowledge-management", "learning"]
 description: "Notes that accumulate value over time through continuous refinement and connection."
 ---
 
+{{< def title="Evergreen Notes" >}}
+Notes designed to grow and improve over time through continuous refinement and connection. Unlike fleeting captures, evergreen notes are concept-oriented, densely linked, written in your own words, and accumulate value as your knowledge base expands.
+{{< /def >}}
+
 Evergreen notes are notes designed to grow and improve over time. Unlike fleeting captures or project-specific documentation, evergreen notes are investments in your future thinking.
 
 ## Characteristics
