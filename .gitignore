@@ -4,6 +4,12 @@ node_modules/
 # Build output (built during CI)
 assets/css/output.css
 
+/public/
+/resources/_gen/
+/assets/jsconfig.json
+hugo_stats.json
+/.hugo_build.lock
+
 # OS files
 .DS_Store
 Thumbs.db
@@ -17,3 +23,6 @@ Thumbs.db
 # Hugo
 resources/_gen/
 .hugo_build.lock
+
+.serena
+CLAUDE.md
