@@ -4,7 +4,7 @@ node_modules/
 # Build output (built during CI)
 assets/css/output.css
 
-/public/
+public/
 /resources/_gen/
 /assets/jsconfig.json
 hugo_stats.json
