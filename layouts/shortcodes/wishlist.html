@@ -22,18 +22,19 @@
 
     {{- /* Direct items (no subsections) */ -}}
     {{- with .items }}
+    {{- $sortedItems := sort . "order" -}}
     <ul class="list-disc pl-6 mb-6">
-      {{- range . -}}
+      {{- range $sortedItems -}}
         {{- $name := .name -}}
         {{- if and (eq $lang "sv") .name_sv -}}
           {{- $name = .name_sv -}}
         {{- end -}}
-        <li class="mb-2">
+        <li class="mb-2{{ if .featured }} bg-yellow-50 dark:bg-yellow-900/20 -ml-2 pl-2 py-1 rounded border-l-4 border-yellow-400{{ end }}">
           {{- if .featured }}<strong>{{ end -}}
           <a href="{{ .url }}" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank" rel="noopener">
             {{- $name -}}
           </a>
-          {{- if .featured }}</strong>{{ end -}}
+          {{- if .featured }}</strong> <span class="text-yellow-600 dark:text-yellow-400 text-xs">({{ i18n "wishlist_top_pick" }})</span>{{ end -}}
           {{- with .quantity }} x {{ . }}{{ end -}}
           {{- if .price }}
             <span class="text-gray-500 dark:text-gray-400 text-sm ml-1">
@@ -63,21 +64,22 @@
     {{- /* Subsections */ -}}
     {{- range .subsections -}}
       {{- $subId := .id -}}
+      {{- $sortedSubItems := sort .items "order" -}}
       <p class="font-semibold text-gray-700 dark:text-gray-200 mt-4 mb-2">
         {{ i18n (printf "wishlist_%s_%s" $catId $subId) }}:
       </p>
       <ul class="list-disc pl-6 mb-6">
-        {{- range .items -}}
+        {{- range $sortedSubItems -}}
           {{- $name := .name -}}
           {{- if and (eq $lang "sv") .name_sv -}}
             {{- $name = .name_sv -}}
           {{- end -}}
-          <li class="mb-2">
+          <li class="mb-2{{ if .featured }} bg-yellow-50 dark:bg-yellow-900/20 -ml-2 pl-2 py-1 rounded border-l-4 border-yellow-400{{ end }}">
             {{- if .featured }}<strong>{{ end -}}
             <a href="{{ .url }}" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank" rel="noopener">
               {{- $name -}}
             </a>
-            {{- if .featured }}</strong>{{ end -}}
+            {{- if .featured }}</strong> <span class="text-yellow-600 dark:text-yellow-400 text-xs">({{ i18n "wishlist_top_pick" }})</span>{{ end -}}
             {{- with .quantity }} x {{ . }}{{ end -}}
             {{- if .price }}
               <span class="text-gray-500 dark:text-gray-400 text-sm ml-1">

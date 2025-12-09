@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Guides on Flavor Theme Demo</title>
+    <link>http://localhost:55541/categories/guides/</link>
+    <description>Recent content in Guides on Flavor Theme Demo</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 01 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:55541/categories/guides/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting Started with Zettelkasten</title>
+      <link>http://localhost:55541/articles/getting-started-with-zettelkasten/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/articles/getting-started-with-zettelkasten/</guid>
+      <description>&lt;p&gt;The Zettelkasten (&amp;ldquo;slip box&amp;rdquo; in German) is a note-taking method that transforms how you think and write. Developed by sociologist Niklas Luhmann, who used it to write over 70 books, the system creates a network of interconnected ideas.&lt;span class=&#34;sidenote-mark text-blue-600 dark:text-blue-400&#34; aria-details=&#34;sidenote-content-01&#34;&gt;&#xA;  &lt;sup class=&#34;font-semibold&#34;&gt;01&lt;/sup&gt;&#xA;&lt;/span&gt;&#xA;&lt;small id=&#34;sidenote-content-01&#34; class=&#34;sidenote text-sm text-gray-600 dark:text-gray-400 xl:float-left xl:clear-left xl:w-48 xl:ml-[-13rem] xl:mt-0 mt-2 mb-2 block xl:block bg-gray-50 dark:bg-gray-800 p-2 rounded xl:bg-transparent xl:dark:bg-transparent xl:p-0&#34;&gt;&#xA;  &lt;span class=&#34;sr-only&#34;&gt;(sidenote: &lt;/span&gt;&#xA;  &lt;sup class=&#34;font-semibold text-blue-600 dark:text-blue-400 xl:inline hidden&#34;&gt;01&lt;/sup&gt;&#xA;  Luhmann maintained his Zettelkasten on paper index cards. Modern digital tools make the method even more powerful.&#xA;  &lt;span class=&#34;sr-only&#34;&gt;)&lt;/span&gt;&#xA;&lt;/small&gt;&#xA;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

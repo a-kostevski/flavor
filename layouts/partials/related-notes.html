@@ -1,0 +1,152 @@
+{{- /*
+  Related Notes Partial - Algorithmic suggestions
+
+  Scoring algorithm:
+  - Backlink from same page: +5 points
+  - Shared outgoing links: +3 points per link
+  - Shared tags: +2 points per tag
+  - Same section: +1 point
+  - Same type: +1 point
+
+  Displays top 5 related notes.
+*/ -}}
+
+{{- if .Site.Params.showRelatedNotes | default true -}}
+{{- $currentPage := . -}}
+{{- $currentPermalink := .RelPermalink -}}
+{{- $currentTags := .Params.tags | default slice -}}
+{{- $currentSection := .Section -}}
+{{- $currentType := .Params.type | default "" -}}
+
+{{- /* Extract current page's outgoing links */ -}}
+{{- $currentOutgoingLinks := slice -}}
+{{- $content := .RawContent -}}
+
+{{- /* Find [[...]] links */ -}}
+{{- $bracketMatches := findRE `\[\[([^\]|]+)` $content -}}
+{{- range $bracketMatches -}}
+  {{- $linkTarget := replaceRE `^\[\[` "" . -}}
+  {{- $currentOutgoingLinks = $currentOutgoingLinks | append $linkTarget -}}
+{{- end -}}
+
+{{- /* Find wikilink shortcode links */ -}}
+{{- $shortcodeMatches := findRE `\{\{<\s*wikilink\s+"([^"]+)"` $content -}}
+{{- range $shortcodeMatches -}}
+  {{- $linkTarget := replaceRE `^.*"([^"]+)".*$` "$1" . -}}
+  {{- $currentOutgoingLinks = $currentOutgoingLinks | append $linkTarget -}}
+{{- end -}}
+
+{{- /* Score each page */ -}}
+{{- $scores := dict -}}
+
+{{- range .Site.RegularPages -}}
+  {{- if ne .RelPermalink $currentPermalink -}}
+    {{- $page := . -}}
+    {{- $score := 0 -}}
+
+    {{- /* Check if this page links to current page (backlink) = +5 */ -}}
+    {{- $pageContent := .RawContent -}}
+    {{- $currentTitle := $currentPage.Title -}}
+    {{- if findRE (printf `\[\[%s` $currentTitle) $pageContent -}}
+      {{- $score = add $score 5 -}}
+    {{- end -}}
+    {{- if findRE (printf `\{\{<\s*wikilink\s+"%s"` $currentTitle) $pageContent -}}
+      {{- $score = add $score 5 -}}
+    {{- end -}}
+
+    {{- /* Check shared outgoing links = +3 per link */ -}}
+    {{- $pageOutgoingLinks := slice -}}
+    {{- $pageBracketMatches := findRE `\[\[([^\]|]+)` $pageContent -}}
+    {{- range $pageBracketMatches -}}
+      {{- $linkTarget := replaceRE `^\[\[` "" . -}}
+      {{- $pageOutgoingLinks = $pageOutgoingLinks | append $linkTarget -}}
+    {{- end -}}
+
+    {{- range $currentOutgoingLinks -}}
+      {{- $link := . -}}
+      {{- if in $pageOutgoingLinks $link -}}
+        {{- $score = add $score 3 -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- /* Check shared tags = +2 per tag */ -}}
+    {{- $pageTags := $page.Params.tags | default slice -}}
+    {{- range $currentTags -}}
+      {{- $tag := . -}}
+      {{- if in $pageTags $tag -}}
+        {{- $score = add $score 2 -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- /* Same section = +1 */ -}}
+    {{- if eq $page.Section $currentSection -}}
+      {{- $score = add $score 1 -}}
+    {{- end -}}
+
+    {{- /* Same type = +1 */ -}}
+    {{- $pageType := $page.Params.type | default "" -}}
+    {{- if and $currentType (eq $pageType $currentType) -}}
+      {{- $score = add $score 1 -}}
+    {{- end -}}
+
+    {{- if gt $score 0 -}}
+      {{- $scores = merge $scores (dict $page.RelPermalink (dict "page" $page "score" $score)) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Sort by score and get top 5 */ -}}
+{{- $sortedPages := slice -}}
+{{- range $permalink, $data := $scores -}}
+  {{- $sortedPages = $sortedPages | append $data -}}
+{{- end -}}
+
+{{- /* Manual sort by score (descending) - Hugo limitation workaround */ -}}
+{{- $topPages := slice -}}
+{{- $usedPermalinks := slice -}}
+{{- $maxIterations := 5 -}}
+{{- range $i := seq 1 $maxIterations -}}
+  {{- $maxScore := 0 -}}
+  {{- $maxPage := false -}}
+  {{- range $sortedPages -}}
+    {{- $currentPermalink := .page.RelPermalink -}}
+    {{- if and (gt .score $maxScore) (not (in $usedPermalinks $currentPermalink)) -}}
+      {{- $maxScore = .score -}}
+      {{- $maxPage = . -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if $maxPage -}}
+    {{- $topPages = $topPages | append $maxPage -}}
+    {{- $usedPermalinks = $usedPermalinks | append $maxPage.page.RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if gt (len $topPages) 0 -}}
+<aside class="related-notes not-prose mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+  <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+    </svg>
+    {{ i18n "relatedNotes" | default "Related Notes" }}
+  </h2>
+  <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    {{- range $topPages -}}
+    <li class="p-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 transition-colors">
+      <a href="{{ .page.RelPermalink }}" class="block">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-xs px-1.5 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded capitalize">{{ .page.Section }}</span>
+          {{ with .page.Params.type }}
+          <span class="text-xs text-gray-400">{{ . }}</span>
+          {{ end }}
+        </div>
+        <span class="text-blue-600 dark:text-blue-400 hover:underline font-medium line-clamp-1">{{ .page.Title }}</span>
+        {{ with .page.Params.description }}
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1 line-clamp-1">{{ . }}</p>
+        {{ end }}
+      </a>
+    </li>
+    {{- end -}}
+  </ul>
+</aside>
+{{- end -}}
+{{- end -}}

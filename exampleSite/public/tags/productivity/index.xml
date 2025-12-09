@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Productivity on Flavor Theme Demo</title>
+    <link>http://localhost:55541/tags/productivity/</link>
+    <description>Recent content in Productivity on Flavor Theme Demo</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 05 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:55541/tags/productivity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Progressive Summarization</title>
+      <link>http://localhost:55541/notes/progressive-summarization/</link>
+      <pubDate>Thu, 05 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/notes/progressive-summarization/</guid>
+      <description>&lt;p&gt;Progressive summarization is Tiago Forte&amp;rsquo;s method for extracting value from notes over time. Instead of processing everything upfront, you distill notes progressively as you use them.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-layers&#34;&gt;The Layers&lt;/h2&gt;&#xA;&lt;p&gt;Each pass adds a layer of highlighting:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Layer 0&lt;/strong&gt;: Original content (capture)&#xA;&lt;strong&gt;Layer 1&lt;/strong&gt;: Bold the most interesting passages&#xA;&lt;strong&gt;Layer 2&lt;/strong&gt;: Highlight the bolded passages that stand out&#xA;&lt;strong&gt;Layer 3&lt;/strong&gt;: Write a brief summary at the top&#xA;&lt;strong&gt;Layer 4&lt;/strong&gt;: Remix into your own original content&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Spaced Repetition</title>
+      <link>http://localhost:55541/notes/spaced-repetition/</link>
+      <pubDate>Wed, 04 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/notes/spaced-repetition/</guid>
+      <description>&lt;p&gt;Spaced repetition is a learning technique based on the spacing effect: we remember things better when we review them at increasing intervals rather than cramming.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-science&#34;&gt;The Science&lt;/h2&gt;&#xA;&lt;p&gt;When you learn something new, the memory decays over time. Each review strengthens the memory and slows the decay rate. By timing reviews just before you&amp;rsquo;d forget, you maximize retention with minimum effort.&lt;/p&gt;&#xA;&lt;p&gt;The optimal intervals follow a pattern:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;First review: 1 day&lt;/li&gt;&#xA;&lt;li&gt;Second review: 3 days&lt;/li&gt;&#xA;&lt;li&gt;Third review: 7 days&lt;/li&gt;&#xA;&lt;li&gt;Fourth review: 14 days&lt;/li&gt;&#xA;&lt;li&gt;And so on, roughly doubling each time&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;application-to-note-taking&#34;&gt;Application to Note-Taking&lt;/h2&gt;&#xA;&lt;p&gt;Spaced repetition complements [[Evergreen Notes]] naturally. Each time you revisit a note to add links or refine content, you&amp;rsquo;re reinforcing that knowledge.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Learning</title>
+      <link>http://localhost:55541/notes/moc-learning/</link>
+      <pubDate>Mon, 02 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/notes/moc-learning/</guid>
+      <description>&lt;p&gt;This is a &lt;strong&gt;Map of Content&lt;/strong&gt; for notes about how we learn effectively.&lt;/p&gt;&#xA;&lt;h2 id=&#34;memory-and-retention&#34;&gt;Memory and Retention&lt;/h2&gt;&#xA;&lt;p&gt;How to remember what you learn:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[Spaced Repetition]] - Timing reviews for optimal retention&lt;/li&gt;&#xA;&lt;li&gt;[[Progressive Summarization]] - Building understanding through layers&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;note-taking-for-learning&#34;&gt;Note-Taking for Learning&lt;/h2&gt;&#xA;&lt;p&gt;Writing as a learning tool:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[Evergreen Notes]] - Notes that compound in value&lt;/li&gt;&#xA;&lt;li&gt;[[The Atomic Notes Principle]] - Clarity through constraint&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;historical-context&#34;&gt;Historical Context&lt;/h2&gt;&#xA;&lt;p&gt;The evolution of knowledge tools:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[As We May Think]] - The original vision for knowledge management&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;related-maps&#34;&gt;Related Maps&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[Note-Taking]] - Specific techniques for capturing knowledge&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;my-learning-philosophy&#34;&gt;My Learning Philosophy&lt;/h2&gt;&#xA;&lt;p&gt;Learning isn&amp;rsquo;t about consuming information - it&amp;rsquo;s about building connections. Each new concept should link to existing knowledge, strengthening both.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Getting Started with Zettelkasten</title>
+      <link>http://localhost:55541/articles/getting-started-with-zettelkasten/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/articles/getting-started-with-zettelkasten/</guid>
+      <description>&lt;p&gt;The Zettelkasten (&amp;ldquo;slip box&amp;rdquo; in German) is a note-taking method that transforms how you think and write. Developed by sociologist Niklas Luhmann, who used it to write over 70 books, the system creates a network of interconnected ideas.&lt;span class=&#34;sidenote-mark text-blue-600 dark:text-blue-400&#34; aria-details=&#34;sidenote-content-01&#34;&gt;&#xA;  &lt;sup class=&#34;font-semibold&#34;&gt;01&lt;/sup&gt;&#xA;&lt;/span&gt;&#xA;&lt;small id=&#34;sidenote-content-01&#34; class=&#34;sidenote text-sm text-gray-600 dark:text-gray-400 xl:float-left xl:clear-left xl:w-48 xl:ml-[-13rem] xl:mt-0 mt-2 mb-2 block xl:block bg-gray-50 dark:bg-gray-800 p-2 rounded xl:bg-transparent xl:dark:bg-transparent xl:p-0&#34;&gt;&#xA;  &lt;span class=&#34;sr-only&#34;&gt;(sidenote: &lt;/span&gt;&#xA;  &lt;sup class=&#34;font-semibold text-blue-600 dark:text-blue-400 xl:inline hidden&#34;&gt;01&lt;/sup&gt;&#xA;  Luhmann maintained his Zettelkasten on paper index cards. Modern digital tools make the method even more powerful.&#xA;  &lt;span class=&#34;sr-only&#34;&gt;)&lt;/span&gt;&#xA;&lt;/small&gt;&#xA;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

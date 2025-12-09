@@ -1,0 +1,93 @@
+{{- /*
+  Transclusion Shortcode - Embed content from another note
+
+  Usage:
+    {{< transclude "Page Title" >}}                    - Full content
+    {{< transclude "Page Title" section="## Notes" >}} - Specific section
+    {{< transclude id="202412091430" >}}               - By ID
+
+  The transcluded content appears in a visually distinct block
+  with a link to the source note.
+*/ -}}
+
+{{- $link := .Get 0 -}}
+{{- $id := .Get "id" -}}
+{{- $section := .Get "section" -}}
+{{- $targetPage := false -}}
+
+{{- /* Find target page by ID */ -}}
+{{- if $id -}}
+  {{- range .Site.RegularPages -}}
+    {{- if eq (string .Params.id) (string $id) -}}
+      {{- $targetPage = . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Find target page by title/filename */ -}}
+{{- if and (not $targetPage) $link -}}
+  {{- range .Site.RegularPages -}}
+    {{- $filename := "" -}}
+    {{- with .File -}}
+      {{- $filename = path.Base .Path | strings.TrimSuffix ".md" -}}
+    {{- end -}}
+
+    {{- if or (eq .Title $link) (eq $filename $link) -}}
+      {{- $targetPage = . -}}
+    {{- end -}}
+
+    {{- /* Check aliases */ -}}
+    {{- with .Params.aliases -}}
+      {{- range . -}}
+        {{- if eq . $link -}}
+          {{- $targetPage = $ -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $targetPage -}}
+  {{- $content := $targetPage.Content -}}
+
+  {{- /* Extract specific section if requested */ -}}
+  {{- if $section -}}
+    {{- $rawContent := $targetPage.RawContent -}}
+    {{- /* Find section start */ -}}
+    {{- $sectionPattern := printf `(?s)%s\n(.*?)(?:\n## |\z)` (replace $section "## " "## ") -}}
+    {{- $matches := findRE $sectionPattern $rawContent 1 -}}
+    {{- if $matches -}}
+      {{- $sectionContent := index $matches 0 -}}
+      {{- /* Remove the heading itself */ -}}
+      {{- $sectionContent = replaceRE (printf `^%s\n` $section) "" $sectionContent -}}
+      {{- /* Remove trailing next heading if captured */ -}}
+      {{- $sectionContent = replaceRE `\n## $` "" $sectionContent -}}
+      {{- $content = $sectionContent | markdownify -}}
+    {{- else -}}
+      {{- $content = printf "Section '%s' not found in %s" $section $targetPage.Title -}}
+    {{- end -}}
+  {{- end -}}
+
+  <div class="transclude not-prose my-6 border-l-4 border-blue-400 dark:border-blue-500 bg-blue-50 dark:bg-blue-900/20 rounded-r-lg overflow-hidden">
+    <div class="px-4 py-2 bg-blue-100 dark:bg-blue-900/40 flex items-center justify-between">
+      <span class="text-sm text-blue-700 dark:text-blue-300 flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+        </svg>
+        {{ i18n "transcludedFrom" | default "Transcluded from" }}
+      </span>
+      <a href="{{ $targetPage.RelPermalink }}" class="text-sm text-blue-600 dark:text-blue-400 hover:underline font-medium">
+        {{ $targetPage.Title }}
+        {{ with $section }}<span class="text-blue-500 dark:text-blue-500"> &rarr; {{ . }}</span>{{ end }}
+      </a>
+    </div>
+    <div class="px-4 py-3 prose dark:prose-invert max-w-none">
+      {{ $content | safeHTML }}
+    </div>
+  </div>
+{{- else -}}
+  <div class="transclude-error my-6 p-4 border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20 rounded-lg text-red-600 dark:text-red-400">
+    <span class="font-medium">{{ i18n "transcludeError" | default "Transclusion error" }}:</span>
+    {{ i18n "pageNotFound" | default "Page not found" }}: {{ $link | default $id }}
+  </div>
+{{- end -}}

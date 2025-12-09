@@ -84,6 +84,14 @@
     }
   }
 
+  /* On extra-large screens, add left margin for sidenotes */
+  @media (min-width: 1280px) {
+    .article-with-toc {
+      grid-template-columns: 1fr 250px;
+      margin-left: 13rem;
+    }
+  }
+
   /* Sticky ToC sidebar */
   .toc-sidebar {
     @apply max-h-[calc(100vh-6rem)] overflow-y-auto pr-2;
@@ -111,6 +119,31 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  /* Task list checkboxes */
+  .prose input[type="checkbox"] {
+    @apply appearance-none w-4 h-4 border-2 border-gray-300 dark:border-gray-600 rounded cursor-pointer;
+    @apply checked:bg-blue-500 checked:border-blue-500;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+    position: relative;
+  }
+
+  .prose input[type="checkbox"]:checked::after {
+    content: '\2713';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    line-height: 1;
+  }
+
+  .prose input[type="checkbox"]:focus {
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2;
   }
 
   /* Code block enhancements */

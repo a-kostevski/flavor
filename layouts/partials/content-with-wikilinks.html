@@ -1,0 +1,106 @@
+{{- /*
+  Content with Wikilinks Partial
+
+  Processes page content and converts [[wikilink]] syntax to proper links.
+  Supports:
+    [[Page Name]]           - Link using title/filename
+    [[Page Name|display]]   - Link with custom display text
+    [[id:202412091430]]     - Link by unique ID
+    [[id:202412091430|display]] - ID link with display text
+
+  Usage in templates:
+    {{ partial "content-with-wikilinks.html" . }}
+*/ -}}
+
+{{- $content := .Content -}}
+{{- $site := .Site -}}
+{{- $page := . -}}
+
+{{- /* Build a lookup map of pages by title, filename, and id */ -}}
+{{- $pagesByTitle := dict -}}
+{{- $pagesByFilename := dict -}}
+{{- $pagesById := dict -}}
+{{- $pagesByAlias := dict -}}
+
+{{- range $site.RegularPages -}}
+  {{- $pagesByTitle = merge $pagesByTitle (dict .Title .) -}}
+  {{- if .File -}}
+    {{- $filename := path.Base .File.Path -}}
+    {{- $filenameNoExt := strings.TrimSuffix ".md" $filename -}}
+    {{- $pagesByFilename = merge $pagesByFilename (dict $filenameNoExt .) -}}
+  {{- end -}}
+  {{- with .Params.id -}}
+    {{- $pagesById = merge $pagesById (dict (string .) $page) -}}
+  {{- end -}}
+  {{- with .Params.aliases -}}
+    {{- range . -}}
+      {{- $pagesByAlias = merge $pagesByAlias (dict . $page) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Find all [[...]] patterns and replace them */ -}}
+{{- $wikilinkPattern := `\[\[([^\]]+)\]\]` -}}
+{{- $matches := findRE $wikilinkPattern $content -}}
+
+{{- range $matches -}}
+  {{- $match := . -}}
+  {{- /* Extract inner content (without brackets) */ -}}
+  {{- $inner := replaceRE `^\[\[|\]\]$` "" $match -}}
+
+  {{- /* Parse display text if present */ -}}
+  {{- $linkTarget := $inner -}}
+  {{- $displayText := $inner -}}
+  {{- if strings.Contains $inner "|" -}}
+    {{- $parts := split $inner "|" -}}
+    {{- $linkTarget = index $parts 0 -}}
+    {{- $displayText = index $parts 1 -}}
+  {{- end -}}
+
+  {{- /* Check for id: prefix */ -}}
+  {{- $targetPage := false -}}
+  {{- $isIdLink := hasPrefix $linkTarget "id:" -}}
+
+  {{- if $isIdLink -}}
+    {{- $id := strings.TrimPrefix "id:" $linkTarget -}}
+    {{- range $site.RegularPages -}}
+      {{- if eq (string .Params.id) $id -}}
+        {{- $targetPage = . -}}
+        {{- if eq $displayText $linkTarget -}}
+          {{- $displayText = .Title -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- else -}}
+    {{- /* Try to resolve by title */ -}}
+    {{- with index $pagesByTitle $linkTarget -}}
+      {{- $targetPage = . -}}
+    {{- end -}}
+
+    {{- /* Try to resolve by filename */ -}}
+    {{- if not $targetPage -}}
+      {{- with index $pagesByFilename $linkTarget -}}
+        {{- $targetPage = . -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- /* Try to resolve by alias */ -}}
+    {{- if not $targetPage -}}
+      {{- with index $pagesByAlias $linkTarget -}}
+        {{- $targetPage = . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- /* Generate replacement HTML */ -}}
+  {{- $replacement := "" -}}
+  {{- if $targetPage -}}
+    {{- $replacement = printf `<a href="%s" class="wikilink text-blue-600 dark:text-blue-400 hover:underline" data-wikilink-target="%s">%s</a>` $targetPage.RelPermalink $targetPage.RelPermalink $displayText -}}
+  {{- else -}}
+    {{- $replacement = printf `<span class="wikilink wikilink-broken text-gray-400 dark:text-gray-600 line-through cursor-not-allowed" title="Page not found: %s">%s</span>` $linkTarget $displayText -}}
+  {{- end -}}
+
+  {{- $content = replace $content $match $replacement -}}
+{{- end -}}
+
+{{- $content | safeHTML -}}

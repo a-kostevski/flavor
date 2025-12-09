@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Knowledge-Management on Flavor Theme Demo</title>
+    <link>http://localhost:55541/tags/knowledge-management/</link>
+    <description>Recent content in Knowledge-Management on Flavor Theme Demo</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 03 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:55541/tags/knowledge-management/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bidirectional Linking</title>
+      <link>http://localhost:55541/notes/bidirectional-linking/</link>
+      <pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/notes/bidirectional-linking/</guid>
+      <description>&lt;p&gt;Bidirectional linking means that when note A links to note B, note B automatically knows about and displays the connection back to A. This simple mechanism transforms how we navigate and discover knowledge.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-backlinks-matter&#34;&gt;Why Backlinks Matter&lt;/h2&gt;&#xA;&lt;p&gt;Traditional links are one-way streets. You know where you&amp;rsquo;re going, but you can&amp;rsquo;t see where you came from. Backlinks complete the picture.&lt;/p&gt;&#xA;&lt;p&gt;Consider a note about &amp;ldquo;Machine Learning&amp;rdquo;. Without backlinks, you only see what ML links to. With backlinks, you discover:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Evergreen Notes</title>
+      <link>http://localhost:55541/notes/evergreen-notes/</link>
+      <pubDate>Mon, 02 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/notes/evergreen-notes/</guid>
+      <description>&lt;p&gt;Evergreen notes are notes designed to grow and improve over time. Unlike fleeting captures or project-specific documentation, evergreen notes are investments in your future thinking.&lt;/p&gt;&#xA;&lt;h2 id=&#34;characteristics&#34;&gt;Characteristics&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Concept-oriented&lt;/strong&gt;: Written about ideas, not sources or events. A note titled &amp;ldquo;Spaced Repetition&amp;rdquo; is evergreen; &amp;ldquo;Notes from Chapter 3&amp;rdquo; is not.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Densely linked&lt;/strong&gt;: Connected to many other notes, forming a web of knowledge. Each new connection adds context and value.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Written for yourself&lt;/strong&gt;: In your own words, reflecting your understanding. Not quotes or summaries, but synthesis.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Learning</title>
+      <link>http://localhost:55541/notes/moc-learning/</link>
+      <pubDate>Mon, 02 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/notes/moc-learning/</guid>
+      <description>&lt;p&gt;This is a &lt;strong&gt;Map of Content&lt;/strong&gt; for notes about how we learn effectively.&lt;/p&gt;&#xA;&lt;h2 id=&#34;memory-and-retention&#34;&gt;Memory and Retention&lt;/h2&gt;&#xA;&lt;p&gt;How to remember what you learn:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[Spaced Repetition]] - Timing reviews for optimal retention&lt;/li&gt;&#xA;&lt;li&gt;[[Progressive Summarization]] - Building understanding through layers&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;note-taking-for-learning&#34;&gt;Note-Taking for Learning&lt;/h2&gt;&#xA;&lt;p&gt;Writing as a learning tool:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[Evergreen Notes]] - Notes that compound in value&lt;/li&gt;&#xA;&lt;li&gt;[[The Atomic Notes Principle]] - Clarity through constraint&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;historical-context&#34;&gt;Historical Context&lt;/h2&gt;&#xA;&lt;p&gt;The evolution of knowledge tools:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[As We May Think]] - The original vision for knowledge management&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;related-maps&#34;&gt;Related Maps&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[Note-Taking]] - Specific techniques for capturing knowledge&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;my-learning-philosophy&#34;&gt;My Learning Philosophy&lt;/h2&gt;&#xA;&lt;p&gt;Learning isn&amp;rsquo;t about consuming information - it&amp;rsquo;s about building connections. Each new concept should link to existing knowledge, strengthening both.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Note-Taking</title>
+      <link>http://localhost:55541/notes/moc-note-taking/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/notes/moc-note-taking/</guid>
+      <description>&lt;p&gt;This is a &lt;strong&gt;Map of Content&lt;/strong&gt; organizing my notes about note-taking systems and personal knowledge management.&lt;/p&gt;&#xA;&lt;h2 id=&#34;core-principles&#34;&gt;Core Principles&lt;/h2&gt;&#xA;&lt;p&gt;The foundation of effective note-taking:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[The Atomic Notes Principle]] - One idea per note&lt;/li&gt;&#xA;&lt;li&gt;[[Evergreen Notes]] - Notes that grow over time&lt;/li&gt;&#xA;&lt;li&gt;[[Bidirectional Linking]] - Two-way connections between notes&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;techniques&#34;&gt;Techniques&lt;/h2&gt;&#xA;&lt;p&gt;Methods for processing and organizing knowledge:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[Progressive Summarization]] - Distilling notes over multiple passes&lt;/li&gt;&#xA;&lt;li&gt;[[Spaced Repetition]] - Reviewing at optimal intervals&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;sources-and-inspiration&#34;&gt;Sources and Inspiration&lt;/h2&gt;&#xA;&lt;p&gt;Where these ideas come from:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Atomic Notes Principle</title>
+      <link>http://localhost:55541/notes/atomic-notes-principle/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/notes/atomic-notes-principle/</guid>
+      <description>&lt;p&gt;The atomic notes principle states that each note should contain exactly one idea. This constraint forces clarity and enables powerful connections.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-atomicity-matters&#34;&gt;Why Atomicity Matters&lt;/h2&gt;&#xA;&lt;p&gt;When a note contains multiple ideas, linking becomes ambiguous. Does a link point to idea A or idea B? By keeping notes atomic, every link has a clear, unambiguous target.&lt;/p&gt;&#xA;&lt;p&gt;Atomic notes are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Self-contained&lt;/strong&gt;: Understandable without context&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Linkable&lt;/strong&gt;: Can be connected precisely&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Reusable&lt;/strong&gt;: Can appear in multiple contexts&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Evolvable&lt;/strong&gt;: Can be refined independently&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;the-test&#34;&gt;The Test&lt;/h2&gt;&#xA;&lt;p&gt;Ask yourself: &amp;ldquo;Can I summarize this note in one sentence?&amp;rdquo; If you need multiple sentences covering different topics, the note should be split.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>As We May Think</title>
+      <link>http://localhost:55541/notes/as-we-may-think/</link>
+      <pubDate>Wed, 20 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/notes/as-we-may-think/</guid>
+      <description>&lt;p&gt;In 1945, Vannevar Bush published &amp;ldquo;As We May Think&amp;rdquo; in The Atlantic, describing the &lt;em&gt;Memex&lt;/em&gt; - a hypothetical device for storing and linking personal knowledge.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-memex-vision&#34;&gt;The Memex Vision&lt;/h2&gt;&#xA;&lt;p&gt;Bush imagined a desk-sized device containing:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Microfilm storage of all books and records&lt;/li&gt;&#xA;&lt;li&gt;A mechanism to add personal annotations&lt;/li&gt;&#xA;&lt;li&gt;The ability to create &lt;strong&gt;trails&lt;/strong&gt; between related items&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&amp;ldquo;The human mind operates by association. With one item in its grasp, it snaps instantly to the next that is suggested by the association of thoughts.&amp;rdquo;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

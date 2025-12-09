@@ -23,8 +23,8 @@
           {{ end }}
         </div>
 
-        {{ with .Summary }}
-        <p class="mt-2 text-gray-600 dark:text-gray-300 line-clamp-2">{{ . }}</p>
+        {{ with .Params.description | default .Summary }}
+        <p class="mt-2 text-gray-600 dark:text-gray-300 line-clamp-2">{{ . | plainify | truncate 160 }}</p>
         {{ end }}
 
         {{ with .Params.tags }}

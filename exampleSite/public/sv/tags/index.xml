@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Flavor Theme Demo</title>
+    <link>http://localhost:55541/sv/tags/</link>
+    <description>Recent content in Tags on Flavor Theme Demo</description>
+    <generator>Hugo</generator>
+    <language>sv-SE</language>
+    <lastBuildDate>Thu, 05 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:55541/sv/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dokumentation</title>
+      <link>http://localhost:55541/sv/tags/dokumentation/</link>
+      <pubDate>Thu, 05 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/sv/tags/dokumentation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Markdown</title>
+      <link>http://localhost:55541/sv/tags/markdown/</link>
+      <pubDate>Thu, 05 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/sv/tags/markdown/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Anteckningar</title>
+      <link>http://localhost:55541/sv/tags/anteckningar/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/sv/tags/anteckningar/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kunskapshantering</title>
+      <link>http://localhost:55541/sv/tags/kunskapshantering/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/sv/tags/kunskapshantering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Zettelkasten</title>
+      <link>http://localhost:55541/sv/tags/zettelkasten/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/sv/tags/zettelkasten/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

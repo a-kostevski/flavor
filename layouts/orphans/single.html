@@ -1,0 +1,136 @@
+{{ define "main" }}
+{{- /*
+  Orphan Notes Page
+
+  Lists all pages with zero incoming links (backlinks).
+  Helps identify disconnected notes that need to be linked.
+*/ -}}
+
+<div class="max-w-4xl mx-auto">
+  <header class="mb-8">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">{{ .Title }}</h1>
+    <p class="text-gray-600 dark:text-gray-400">{{ i18n "orphansDescription" | default "Notes with no incoming links. Consider connecting these to your knowledge graph." }}</p>
+  </header>
+
+  {{- /* Find orphan pages */ -}}
+  {{- $orphans := slice -}}
+
+  {{- range .Site.RegularPages -}}
+    {{- $page := . -}}
+    {{- $hasBacklink := false -}}
+    {{- $currentRelPermalink := .RelPermalink -}}
+    {{- $currentTitle := .Title -}}
+    {{- $currentId := .Params.id | default "" -}}
+    {{- $currentFilename := "" -}}
+    {{- with .File -}}
+      {{- $currentFilename = path.Base .Path | strings.TrimSuffix ".md" -}}
+    {{- end -}}
+    {{- $currentAliases := .Params.aliases | default slice -}}
+
+    {{- range $.Site.RegularPages -}}
+      {{- if and (not $hasBacklink) (ne .RelPermalink $currentRelPermalink) -}}
+        {{- $content := .RawContent -}}
+
+        {{- if findRE (printf `\[\[%s` $currentTitle) $content }}{{ $hasBacklink = true }}{{ end -}}
+        {{- if and (not $hasBacklink) $currentFilename }}{{ if findRE (printf `\[\[%s` $currentFilename) $content }}{{ $hasBacklink = true }}{{ end }}{{ end -}}
+        {{- if and (not $hasBacklink) $currentId }}{{ if findRE (printf `\[\[id:%s` $currentId) $content }}{{ $hasBacklink = true }}{{ end }}{{ end -}}
+        {{- if and (not $hasBacklink) }}{{ if findRE (printf `\{\{<\s*wikilink\s+"%s"` $currentTitle) $content }}{{ $hasBacklink = true }}{{ end }}{{ end -}}
+        {{- if and (not $hasBacklink) $currentFilename }}{{ if findRE (printf `\{\{<\s*wikilink\s+"%s"` $currentFilename) $content }}{{ $hasBacklink = true }}{{ end }}{{ end -}}
+        {{- range $currentAliases -}}
+          {{- $alias := . -}}
+          {{- if and (not $hasBacklink) }}{{ if findRE (printf `\[\[%s` $alias) $content }}{{ $hasBacklink = true }}{{ end }}{{ end -}}
+        {{- end -}}
+        {{- if and (not $hasBacklink) }}{{ if findRE (printf `\]\(%s\)` $currentRelPermalink) $content }}{{ $hasBacklink = true }}{{ end }}{{ end -}}
+        {{- if and (not $hasBacklink) }}{{ if findRE (printf `href=["']%s["']` $currentRelPermalink) $content }}{{ $hasBacklink = true }}{{ end }}{{ end -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- if not $hasBacklink -}}
+      {{- $orphans = $orphans | append $page -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- /* Stats */ -}}
+  <div class="mb-6 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg">
+    <div class="flex items-center gap-2 text-amber-700 dark:text-amber-400">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+      </svg>
+      <span class="font-medium">{{ len $orphans }} {{ i18n "orphanNotesCount" | default "orphan notes found" }}</span>
+    </div>
+    <p class="text-sm text-amber-600 dark:text-amber-500 mt-1">
+      {{ i18n "orphanNotesHelp" | default "Link these notes from other content to integrate them into your knowledge graph." }}
+    </p>
+  </div>
+
+  {{ if gt (len $orphans) 0 }}
+  {{- /* Group by section */ -}}
+  {{- $bySection := dict -}}
+  {{- range $orphans -}}
+    {{- $section := .Section -}}
+    {{- $existing := index $bySection $section | default slice -}}
+    {{- $bySection = merge $bySection (dict $section ($existing | append .)) -}}
+  {{- end -}}
+
+  <div class="space-y-8">
+    {{ range $section, $pages := $bySection }}
+    <section>
+      <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4 capitalize flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-gray-400"></span>
+        {{ $section }}
+        <span class="text-sm font-normal text-gray-500">({{ len $pages }})</span>
+      </h2>
+
+      <ul class="space-y-3">
+        {{ range $pages }}
+        <li class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-amber-400 dark:hover:border-amber-500 transition-colors">
+          <div class="flex items-start justify-between gap-4">
+            <div class="min-w-0">
+              <a href="{{ .RelPermalink }}" class="text-lg font-medium text-blue-600 dark:text-blue-400 hover:underline">
+                {{ .Title }}
+              </a>
+
+              {{ with .Params.type }}
+              <span class="ml-2 text-xs px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 capitalize">{{ . }}</span>
+              {{ end }}
+
+              {{ with .Params.description }}
+              <p class="text-gray-600 dark:text-gray-400 text-sm mt-1 line-clamp-2">{{ . }}</p>
+              {{ end }}
+
+              {{ with .Params.tags }}
+              <div class="flex flex-wrap gap-1 mt-2">
+                {{ range . }}
+                <span class="text-xs text-gray-500">#{{ . }}</span>
+                {{ end }}
+              </div>
+              {{ end }}
+            </div>
+
+            <div class="shrink-0 text-sm text-gray-500 dark:text-gray-400">
+              {{ .Date.Format "Jan 2, 2006" }}
+            </div>
+          </div>
+
+          {{- /* Suggested link syntax */ -}}
+          <div class="mt-3 pt-3 border-t border-gray-100 dark:border-gray-700">
+            <span class="text-xs text-gray-500 dark:text-gray-400">{{ i18n "linkSyntax" | default "Link syntax" }}:</span>
+            <code class="ml-2 text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-gray-700 dark:text-gray-300 font-mono">[[{{ .Title }}]]</code>
+          </div>
+        </li>
+        {{ end }}
+      </ul>
+    </section>
+    {{ end }}
+  </div>
+  {{ else }}
+  <div class="text-center py-12 text-gray-500 dark:text-gray-400">
+    <svg class="w-12 h-12 mx-auto mb-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+    </svg>
+    <p class="text-lg font-medium text-gray-700 dark:text-gray-300">{{ i18n "noOrphans" | default "No orphan notes found!" }}</p>
+    <p class="mt-1">{{ i18n "noOrphansDescription" | default "All your notes are connected to the knowledge graph." }}</p>
+  </div>
+  {{ end }}
+</div>
+{{ end }}

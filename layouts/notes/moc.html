@@ -1,0 +1,167 @@
+{{ define "main" }}
+{{- /*
+  MOC (Map of Content) Template
+
+  Special layout for type: moc pages that:
+  - Shows the MOC's own content
+  - Auto-lists all notes that link TO this MOC
+  - Groups linked notes by type
+  - Shows a mini-graph centered on this MOC
+*/ -}}
+
+<div class="moc-page">
+  <article class="prose prose-lg dark:prose-invert prose-blue max-w-none">
+    <header class="mb-8 not-prose">
+      {{- /* Breadcrumbs */ -}}
+      {{ if .Site.Params.ShowBreadCrumbs }}
+      <nav class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+        <a href="{{ .Site.BaseURL }}" class="hover:text-gray-700 dark:hover:text-gray-200">{{ i18n "home" }}</a>
+        {{ range .Ancestors.Reverse }}
+        <span class="mx-2">/</span>
+        <a href="{{ .Permalink }}" class="hover:text-gray-700 dark:hover:text-gray-200">{{ .Title }}</a>
+        {{ end }}
+      </nav>
+      {{ end }}
+
+      <div class="flex items-center gap-3 mb-4">
+        {{- /* MOC badge */ -}}
+        <span class="px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-sm font-medium flex items-center gap-1">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+          </svg>
+          {{ i18n "noteType_moc" | default "Map of Content" }}
+        </span>
+      </div>
+
+      <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">{{ .Title }}</h1>
+
+      {{- /* Post meta */ -}}
+      <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+        {{ if .Date }}
+        <time datetime="{{ .Date.Format "2006-01-02" }}">
+          {{ .Date.Format "January 2, 2006" }}
+        </time>
+        {{ end }}
+        {{ with .Params.tags }}
+        <span>&middot;</span>
+        <div class="flex flex-wrap gap-2">
+          {{ range . }}
+          <a href="{{ "tags/" | relURL }}{{ . | urlize }}" class="text-blue-600 dark:text-blue-400 hover:underline">#{{ . }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+    </header>
+
+    {{- /* MOC Content */ -}}
+    <div class="content">
+      {{ partial "content-with-wikilinks.html" . }}
+    </div>
+  </article>
+
+  {{- /* Linked Notes Section - Auto-generated from backlinks */ -}}
+  {{- $backlinks := slice -}}
+  {{- $currentPage := . -}}
+  {{- $currentRelPermalink := .RelPermalink -}}
+  {{- $currentTitle := .Title -}}
+  {{- $currentId := .Params.id | default "" -}}
+  {{- $currentFilename := "" -}}
+  {{- with .File -}}
+    {{- $currentFilename = path.Base .Path | strings.TrimSuffix ".md" -}}
+  {{- end -}}
+
+  {{- range .Site.RegularPages -}}
+    {{- if ne .RelPermalink $currentRelPermalink -}}
+      {{- $content := .RawContent -}}
+      {{- $found := false -}}
+
+      {{- /* Check for various link patterns */ -}}
+      {{- if findRE (printf `\[\[%s` $currentTitle) $content }}{{ $found = true }}{{ end -}}
+      {{- if and (not $found) $currentFilename }}{{ if findRE (printf `\[\[%s` $currentFilename) $content }}{{ $found = true }}{{ end }}{{ end -}}
+      {{- if and (not $found) $currentId }}{{ if findRE (printf `\[\[id:%s` $currentId) $content }}{{ $found = true }}{{ end }}{{ end -}}
+      {{- if and (not $found) }}{{ if findRE (printf `\{\{<\s*wikilink\s+"%s"` $currentTitle) $content }}{{ $found = true }}{{ end }}{{ end -}}
+      {{- if and (not $found) $currentFilename }}{{ if findRE (printf `\{\{<\s*wikilink\s+"%s"` $currentFilename) $content }}{{ $found = true }}{{ end }}{{ end -}}
+
+      {{- if $found -}}
+        {{- $backlinks = $backlinks | append . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{ if gt (len $backlinks) 0 }}
+  <section class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+      <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+      </svg>
+      {{ i18n "linkedNotes" | default "Linked Notes" }}
+      <span class="text-base font-normal text-gray-500 dark:text-gray-400">({{ len $backlinks }})</span>
+    </h2>
+
+    {{- /* Group by type */ -}}
+    {{- $byType := dict -}}
+    {{- range $backlinks -}}
+      {{- $type := .Params.type | default "untyped" -}}
+      {{- $existing := index $byType $type | default slice -}}
+      {{- $byType = merge $byType (dict $type ($existing | append .)) -}}
+    {{- end -}}
+
+    {{- /* Type order and colors */ -}}
+    {{- $typeOrder := slice "permanent" "literature" "fleeting" "untyped" -}}
+    {{- $typeColors := dict
+      "permanent" "green"
+      "literature" "blue"
+      "fleeting" "amber"
+      "moc" "purple"
+      "untyped" "gray"
+    -}}
+
+    <div class="space-y-8">
+      {{ range $typeOrder }}
+        {{- $type := . -}}
+        {{- $notes := index $byType $type -}}
+        {{- $color := index $typeColors $type | default "gray" -}}
+
+        {{ if $notes }}
+        <div>
+          <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-3 capitalize flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-{{ $color }}-500"></span>
+            {{ if eq $type "untyped" }}
+              {{ i18n "untypedNotes" | default "Other Notes" }}
+            {{ else }}
+              {{ i18n (printf "noteType_%s" $type) | default $type }}
+            {{ end }}
+            <span class="text-sm font-normal text-gray-500">({{ len $notes }})</span>
+          </h3>
+
+          <ul class="grid gap-3 sm:grid-cols-2">
+            {{ range $notes }}
+            <li class="p-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-{{ $color }}-400 dark:hover:border-{{ $color }}-500 transition-colors">
+              <a href="{{ .RelPermalink }}" class="block">
+                <span class="text-blue-600 dark:text-blue-400 hover:underline font-medium">{{ .Title }}</span>
+                {{ with .Params.description }}
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1 line-clamp-1">{{ . }}</p>
+                {{ end }}
+              </a>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+        {{ end }}
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{- /* Mini Graph */ -}}
+  {{ if .Site.Params.showGraph }}
+  <section class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+    <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">{{ i18n "connectionGraph" | default "Connections" }}</h2>
+    {{ partial "graph.html" . }}
+  </section>
+  {{ end }}
+
+  {{- /* Backlinks */ -}}
+  {{ partial "backlinks.html" . }}
+</div>
+{{ end }}

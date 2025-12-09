@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Flavor Theme Demo</title>
+    <link>http://localhost:55541/projects/</link>
+    <description>Recent content in Projects on Flavor Theme Demo</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 01 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:55541/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Flavor Theme</title>
+      <link>http://localhost:55541/projects/flavor-theme/</link>
+      <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/projects/flavor-theme/</guid>
+      <description>&lt;p&gt;Flavor is a Hugo theme built for personal knowledge management. It combines the simplicity of static site generation with powerful features for networked note-taking.&lt;/p&gt;&#xA;&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Wikilinks&lt;/strong&gt;: Link notes using &lt;code&gt;[[double brackets]]&lt;/code&gt; or shortcodes&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Backlinks&lt;/strong&gt;: Automatic detection of pages linking to the current page&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Knowledge Graph&lt;/strong&gt;: D3.js visualization of note connections&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Note Types&lt;/strong&gt;: Taxonomy for fleeting, literature, permanent, and MOC notes&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Related Notes&lt;/strong&gt;: Algorithmic suggestions based on shared links and tags&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Dark Mode&lt;/strong&gt;: Automatic theme switching with manual toggle&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Search&lt;/strong&gt;: Full-text fuzzy search with Fuse.js&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;technical-stack&#34;&gt;Technical Stack&lt;/h2&gt;&#xA;&lt;p&gt;Built with a modern, minimal stack:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Personal Knowledge Base</title>
+      <link>http://localhost:55541/projects/knowledge-base/</link>
+      <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/projects/knowledge-base/</guid>
+      <description>&lt;p&gt;My personal knowledge base, built using the Flavor theme and Zettelkasten principles.&lt;/p&gt;&#xA;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;/h2&gt;&#xA;&lt;p&gt;A second brain for:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Capturing ideas and insights&lt;/li&gt;&#xA;&lt;li&gt;Connecting concepts across domains&lt;/li&gt;&#xA;&lt;li&gt;Writing and thinking in public&lt;/li&gt;&#xA;&lt;li&gt;Building a searchable personal wiki&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;structure&#34;&gt;Structure&lt;/h2&gt;&#xA;&lt;p&gt;The knowledge base is organized around Maps of Content (MOCs):&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[Note-Taking]] - Personal knowledge management&lt;/li&gt;&#xA;&lt;li&gt;[[Learning]] - Learning techniques and cognitive science&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Individual notes link freely across these domains, creating a web of interconnected ideas.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Home Automation</title>
+      <link>http://localhost:55541/projects/home-automation/</link>
+      <pubDate>Thu, 01 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/projects/home-automation/</guid>
+      <description>&lt;p&gt;A smart home system prioritizing local control, privacy, and reliability.&lt;/p&gt;&#xA;&lt;h2 id=&#34;philosophy&#34;&gt;Philosophy&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Local first&lt;/strong&gt;: Everything runs on local hardware. No cloud dependencies.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Open protocols&lt;/strong&gt;: Zigbee, MQTT, ESPHome - no proprietary lock-in.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Fail safe&lt;/strong&gt;: Manual controls always work, even if automation fails.&lt;/p&gt;&#xA;&lt;h2 id=&#34;stack&#34;&gt;Stack&lt;/h2&gt;&#xA;&lt;h3 id=&#34;control-center&#34;&gt;Control Center&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Home Assistant&lt;/strong&gt;: Central automation hub&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Mosquitto&lt;/strong&gt;: MQTT broker for device communication&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Zigbee2MQTT&lt;/strong&gt;: Bridge for Zigbee devices&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;devices&#34;&gt;Devices&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;ESPHome&lt;/strong&gt;: Custom sensors and controllers on ESP32/ESP8266&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Zigbee&lt;/strong&gt;: Lights, buttons, sensors from various manufacturers&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Z-Wave&lt;/strong&gt;: Some legacy devices&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;automations&#34;&gt;Automations&lt;/h2&gt;&#xA;&lt;p&gt;Key automations running:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>CLI Notes</title>
+      <link>http://localhost:55541/projects/cli-notes/</link>
+      <pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/projects/cli-notes/</guid>
+      <description>&lt;p&gt;A fast command-line note-taking tool designed for developers who live in the terminal.&lt;/p&gt;&#xA;&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Quick capture&lt;/strong&gt;: &lt;code&gt;notes add &amp;quot;thought about something&amp;quot;&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Tagging&lt;/strong&gt;: &lt;code&gt;notes add -t work,ideas &amp;quot;project idea&amp;quot;&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Search&lt;/strong&gt;: &lt;code&gt;notes search &amp;quot;keyword&amp;quot;&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Export&lt;/strong&gt;: &lt;code&gt;notes export --format markdown&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;why-cli&#34;&gt;Why CLI?&lt;/h2&gt;&#xA;&lt;p&gt;Sometimes you just want to capture a thought without:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Opening a browser&lt;/li&gt;&#xA;&lt;li&gt;Waiting for an app to load&lt;/li&gt;&#xA;&lt;li&gt;Leaving the terminal&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;CLI Notes keeps you in flow.&lt;/p&gt;&#xA;&lt;h2 id=&#34;technical-details&#34;&gt;Technical Details&lt;/h2&gt;&#xA;&lt;p&gt;Built with Go for fast startup and single-binary distribution. Uses SQLite for local storage - no server required.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

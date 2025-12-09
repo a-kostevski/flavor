@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Note-Taking on Flavor Theme Demo</title>
+    <link>http://localhost:55541/tags/note-taking/</link>
+    <description>Recent content in Note-Taking on Flavor Theme Demo</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 09 Dec 2024 14:15:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:55541/tags/note-taking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Thought: Links vs. Tags</title>
+      <link>http://localhost:55541/notes/thought-on-linking/</link>
+      <pubDate>Mon, 09 Dec 2024 14:15:00 +0000</pubDate>
+      <guid>http://localhost:55541/notes/thought-on-linking/</guid>
+      <description>&lt;p&gt;Quick observation while organizing notes today:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Tags&lt;/strong&gt; = &amp;ldquo;this note is &lt;em&gt;about&lt;/em&gt; X&amp;rdquo;&#xA;&lt;strong&gt;Links&lt;/strong&gt; = &amp;ldquo;this note &lt;em&gt;relates to&lt;/em&gt; that specific note&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;Tags create broad buckets. Links create specific bridges.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve been over-using tags when I should be linking. A note about [[Spaced Repetition]] doesn&amp;rsquo;t just need the tag &amp;ldquo;learning&amp;rdquo; - it needs a direct link to [[Progressive Summarization]] because they&amp;rsquo;re related techniques.&lt;/p&gt;&#xA;&lt;p&gt;The [[Note-Taking|knowledge graph]] shows this clearly: tags create dense clusters, links create meaningful paths between clusters.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Progressive Summarization</title>
+      <link>http://localhost:55541/notes/progressive-summarization/</link>
+      <pubDate>Thu, 05 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/notes/progressive-summarization/</guid>
+      <description>&lt;p&gt;Progressive summarization is Tiago Forte&amp;rsquo;s method for extracting value from notes over time. Instead of processing everything upfront, you distill notes progressively as you use them.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-layers&#34;&gt;The Layers&lt;/h2&gt;&#xA;&lt;p&gt;Each pass adds a layer of highlighting:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Layer 0&lt;/strong&gt;: Original content (capture)&#xA;&lt;strong&gt;Layer 1&lt;/strong&gt;: Bold the most interesting passages&#xA;&lt;strong&gt;Layer 2&lt;/strong&gt;: Highlight the bolded passages that stand out&#xA;&lt;strong&gt;Layer 3&lt;/strong&gt;: Write a brief summary at the top&#xA;&lt;strong&gt;Layer 4&lt;/strong&gt;: Remix into your own original content&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bidirectional Linking</title>
+      <link>http://localhost:55541/notes/bidirectional-linking/</link>
+      <pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/notes/bidirectional-linking/</guid>
+      <description>&lt;p&gt;Bidirectional linking means that when note A links to note B, note B automatically knows about and displays the connection back to A. This simple mechanism transforms how we navigate and discover knowledge.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-backlinks-matter&#34;&gt;Why Backlinks Matter&lt;/h2&gt;&#xA;&lt;p&gt;Traditional links are one-way streets. You know where you&amp;rsquo;re going, but you can&amp;rsquo;t see where you came from. Backlinks complete the picture.&lt;/p&gt;&#xA;&lt;p&gt;Consider a note about &amp;ldquo;Machine Learning&amp;rdquo;. Without backlinks, you only see what ML links to. With backlinks, you discover:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Evergreen Notes</title>
+      <link>http://localhost:55541/notes/evergreen-notes/</link>
+      <pubDate>Mon, 02 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/notes/evergreen-notes/</guid>
+      <description>&lt;p&gt;Evergreen notes are notes designed to grow and improve over time. Unlike fleeting captures or project-specific documentation, evergreen notes are investments in your future thinking.&lt;/p&gt;&#xA;&lt;h2 id=&#34;characteristics&#34;&gt;Characteristics&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Concept-oriented&lt;/strong&gt;: Written about ideas, not sources or events. A note titled &amp;ldquo;Spaced Repetition&amp;rdquo; is evergreen; &amp;ldquo;Notes from Chapter 3&amp;rdquo; is not.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Densely linked&lt;/strong&gt;: Connected to many other notes, forming a web of knowledge. Each new connection adds context and value.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Written for yourself&lt;/strong&gt;: In your own words, reflecting your understanding. Not quotes or summaries, but synthesis.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Getting Started with Zettelkasten</title>
+      <link>http://localhost:55541/articles/getting-started-with-zettelkasten/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/articles/getting-started-with-zettelkasten/</guid>
+      <description>&lt;p&gt;The Zettelkasten (&amp;ldquo;slip box&amp;rdquo; in German) is a note-taking method that transforms how you think and write. Developed by sociologist Niklas Luhmann, who used it to write over 70 books, the system creates a network of interconnected ideas.&lt;span class=&#34;sidenote-mark text-blue-600 dark:text-blue-400&#34; aria-details=&#34;sidenote-content-01&#34;&gt;&#xA;  &lt;sup class=&#34;font-semibold&#34;&gt;01&lt;/sup&gt;&#xA;&lt;/span&gt;&#xA;&lt;small id=&#34;sidenote-content-01&#34; class=&#34;sidenote text-sm text-gray-600 dark:text-gray-400 xl:float-left xl:clear-left xl:w-48 xl:ml-[-13rem] xl:mt-0 mt-2 mb-2 block xl:block bg-gray-50 dark:bg-gray-800 p-2 rounded xl:bg-transparent xl:dark:bg-transparent xl:p-0&#34;&gt;&#xA;  &lt;span class=&#34;sr-only&#34;&gt;(sidenote: &lt;/span&gt;&#xA;  &lt;sup class=&#34;font-semibold text-blue-600 dark:text-blue-400 xl:inline hidden&#34;&gt;01&lt;/sup&gt;&#xA;  Luhmann maintained his Zettelkasten on paper index cards. Modern digital tools make the method even more powerful.&#xA;  &lt;span class=&#34;sr-only&#34;&gt;)&lt;/span&gt;&#xA;&lt;/small&gt;&#xA;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Note-Taking</title>
+      <link>http://localhost:55541/notes/moc-note-taking/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/notes/moc-note-taking/</guid>
+      <description>&lt;p&gt;This is a &lt;strong&gt;Map of Content&lt;/strong&gt; organizing my notes about note-taking systems and personal knowledge management.&lt;/p&gt;&#xA;&lt;h2 id=&#34;core-principles&#34;&gt;Core Principles&lt;/h2&gt;&#xA;&lt;p&gt;The foundation of effective note-taking:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[The Atomic Notes Principle]] - One idea per note&lt;/li&gt;&#xA;&lt;li&gt;[[Evergreen Notes]] - Notes that grow over time&lt;/li&gt;&#xA;&lt;li&gt;[[Bidirectional Linking]] - Two-way connections between notes&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;techniques&#34;&gt;Techniques&lt;/h2&gt;&#xA;&lt;p&gt;Methods for processing and organizing knowledge:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[Progressive Summarization]] - Distilling notes over multiple passes&lt;/li&gt;&#xA;&lt;li&gt;[[Spaced Repetition]] - Reviewing at optimal intervals&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;sources-and-inspiration&#34;&gt;Sources and Inspiration&lt;/h2&gt;&#xA;&lt;p&gt;Where these ideas come from:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Atomic Notes Principle</title>
+      <link>http://localhost:55541/notes/atomic-notes-principle/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/notes/atomic-notes-principle/</guid>
+      <description>&lt;p&gt;The atomic notes principle states that each note should contain exactly one idea. This constraint forces clarity and enables powerful connections.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-atomicity-matters&#34;&gt;Why Atomicity Matters&lt;/h2&gt;&#xA;&lt;p&gt;When a note contains multiple ideas, linking becomes ambiguous. Does a link point to idea A or idea B? By keeping notes atomic, every link has a clear, unambiguous target.&lt;/p&gt;&#xA;&lt;p&gt;Atomic notes are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Self-contained&lt;/strong&gt;: Understandable without context&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Linkable&lt;/strong&gt;: Can be connected precisely&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Reusable&lt;/strong&gt;: Can appear in multiple contexts&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Evolvable&lt;/strong&gt;: Can be refined independently&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;the-test&#34;&gt;The Test&lt;/h2&gt;&#xA;&lt;p&gt;Ask yourself: &amp;ldquo;Can I summarize this note in one sentence?&amp;rdquo; If you need multiple sentences covering different topics, the note should be split.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to Take Smart Notes</title>
+      <link>http://localhost:55541/notes/how-to-take-smart-notes/</link>
+      <pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/notes/how-to-take-smart-notes/</guid>
+      <description>&lt;p&gt;&lt;em&gt;How to Take Smart Notes&lt;/em&gt; by Sönke Ahrens introduces Niklas Luhmann&amp;rsquo;s Zettelkasten method to a modern audience. Luhmann, a German sociologist, wrote over 70 books and 400 articles using this system.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-concepts&#34;&gt;Key Concepts&lt;/h2&gt;&#xA;&lt;h3 id=&#34;the-slip-box-system&#34;&gt;The Slip-Box System&lt;/h3&gt;&#xA;&lt;p&gt;Luhmann maintained two slip-boxes:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Bibliographical box&lt;/strong&gt;: Quick references to sources&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Main box&lt;/strong&gt;: His own ideas and connections&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;The main box is where the magic happens. Each note is:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Written in complete sentences&lt;/li&gt;&#xA;&lt;li&gt;Self-contained and understandable in isolation&lt;/li&gt;&#xA;&lt;li&gt;Connected to existing notes via explicit links&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;writing-as-thinking&#34;&gt;Writing as Thinking&lt;/h3&gt;&#xA;&lt;p&gt;Ahrens argues that writing is not the &lt;em&gt;output&lt;/em&gt; of thinking but the &lt;em&gt;medium&lt;/em&gt; of thinking. The act of writing forces clarity.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

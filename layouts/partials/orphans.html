@@ -1,0 +1,55 @@
+{{- /*
+  Orphan Notes Partial
+
+  Lists all pages that have zero incoming links (backlinks).
+  These are "orphan" notes that aren't connected to the rest of the knowledge base.
+*/ -}}
+
+{{- $orphans := slice -}}
+
+{{- range .Site.RegularPages -}}
+  {{- $page := . -}}
+  {{- $hasBacklink := false -}}
+  {{- $currentRelPermalink := .RelPermalink -}}
+  {{- $currentTitle := .Title -}}
+  {{- $currentId := .Params.id | default "" -}}
+  {{- $currentFilename := "" -}}
+  {{- with .File -}}
+    {{- $currentFilename = path.Base .Path | strings.TrimSuffix ".md" -}}
+  {{- end -}}
+  {{- $currentAliases := .Params.aliases | default slice -}}
+
+  {{- /* Check if any page links to this one */ -}}
+  {{- range $.Site.RegularPages -}}
+    {{- if and (not $hasBacklink) (ne .RelPermalink $currentRelPermalink) -}}
+      {{- $content := .RawContent -}}
+
+      {{- /* Check wikilink patterns */ -}}
+      {{- if findRE (printf `\[\[%s` $currentTitle) $content }}{{ $hasBacklink = true }}{{ end -}}
+      {{- if and (not $hasBacklink) $currentFilename }}{{ if findRE (printf `\[\[%s` $currentFilename) $content }}{{ $hasBacklink = true }}{{ end }}{{ end -}}
+      {{- if and (not $hasBacklink) $currentId }}{{ if findRE (printf `\[\[id:%s` $currentId) $content }}{{ $hasBacklink = true }}{{ end }}{{ end -}}
+
+      {{- /* Check shortcode patterns */ -}}
+      {{- if and (not $hasBacklink) }}{{ if findRE (printf `\{\{<\s*wikilink\s+"%s"` $currentTitle) $content }}{{ $hasBacklink = true }}{{ end }}{{ end -}}
+      {{- if and (not $hasBacklink) $currentFilename }}{{ if findRE (printf `\{\{<\s*wikilink\s+"%s"` $currentFilename) $content }}{{ $hasBacklink = true }}{{ end }}{{ end -}}
+
+      {{- /* Check aliases */ -}}
+      {{- range $currentAliases -}}
+        {{- $alias := . -}}
+        {{- if and (not $hasBacklink) }}{{ if findRE (printf `\[\[%s` $alias) $content }}{{ $hasBacklink = true }}{{ end }}{{ end -}}
+        {{- if and (not $hasBacklink) }}{{ if findRE (printf `\{\{<\s*wikilink\s+"%s"` $alias) $content }}{{ $hasBacklink = true }}{{ end }}{{ end -}}
+      {{- end -}}
+
+      {{- /* Check standard links */ -}}
+      {{- if and (not $hasBacklink) }}{{ if findRE (printf `\]\(%s\)` $currentRelPermalink) $content }}{{ $hasBacklink = true }}{{ end }}{{ end -}}
+      {{- if and (not $hasBacklink) }}{{ if findRE (printf `href=["']%s["']` $currentRelPermalink) $content }}{{ $hasBacklink = true }}{{ end }}{{ end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if not $hasBacklink -}}
+    {{- $orphans = $orphans | append $page -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Return orphan pages */ -}}
+{{- return $orphans -}}

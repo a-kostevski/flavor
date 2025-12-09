@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Memory on Flavor Theme Demo</title>
+    <link>http://localhost:55541/tags/memory/</link>
+    <description>Recent content in Memory on Flavor Theme Demo</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 04 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:55541/tags/memory/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spaced Repetition</title>
+      <link>http://localhost:55541/notes/spaced-repetition/</link>
+      <pubDate>Wed, 04 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/notes/spaced-repetition/</guid>
+      <description>&lt;p&gt;Spaced repetition is a learning technique based on the spacing effect: we remember things better when we review them at increasing intervals rather than cramming.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-science&#34;&gt;The Science&lt;/h2&gt;&#xA;&lt;p&gt;When you learn something new, the memory decays over time. Each review strengthens the memory and slows the decay rate. By timing reviews just before you&amp;rsquo;d forget, you maximize retention with minimum effort.&lt;/p&gt;&#xA;&lt;p&gt;The optimal intervals follow a pattern:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;First review: 1 day&lt;/li&gt;&#xA;&lt;li&gt;Second review: 3 days&lt;/li&gt;&#xA;&lt;li&gt;Third review: 7 days&lt;/li&gt;&#xA;&lt;li&gt;Fourth review: 14 days&lt;/li&gt;&#xA;&lt;li&gt;And so on, roughly doubling each time&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;application-to-note-taking&#34;&gt;Application to Note-Taking&lt;/h2&gt;&#xA;&lt;p&gt;Spaced repetition complements [[Evergreen Notes]] naturally. Each time you revisit a note to add links or refine content, you&amp;rsquo;re reinforcing that knowledge.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

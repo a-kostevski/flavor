@@ -22,6 +22,28 @@
       {{ partial "language-switcher.html" . }}
       */ -}}
 
+      {{- /* Random note link */ -}}
+      {{ if .Site.Params.showRandomNote | default true }}
+      <a href="#" id="random-note" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white" aria-label="{{ i18n "randomNote" | default "Random Note" }}" title="{{ i18n "randomNote" | default "Random Note" }}">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+        </svg>
+      </a>
+      <script>
+        (function() {
+          const pages = [{{- range $i, $p := .Site.RegularPages -}}{{- if $i }},{{ end }}"{{ $p.RelPermalink }}"{{- end -}}];
+          const btn = document.getElementById('random-note');
+          if (btn && pages.length > 0) {
+            btn.addEventListener('click', function(e) {
+              e.preventDefault();
+              const randomPage = pages[Math.floor(Math.random() * pages.length)];
+              window.location.href = randomPage;
+            });
+          }
+        })();
+      </script>
+      {{ end }}
+
       {{- /* Dark mode toggle */ -}}
       <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
         <span class="dark:hidden">{{ partial "svg/moon.html" }}</span>

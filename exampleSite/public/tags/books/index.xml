@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Books on Flavor Theme Demo</title>
+    <link>http://localhost:55541/tags/books/</link>
+    <description>Recent content in Books on Flavor Theme Demo</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 15 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:55541/tags/books/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Take Smart Notes</title>
+      <link>http://localhost:55541/notes/how-to-take-smart-notes/</link>
+      <pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/notes/how-to-take-smart-notes/</guid>
+      <description>&lt;p&gt;&lt;em&gt;How to Take Smart Notes&lt;/em&gt; by Sönke Ahrens introduces Niklas Luhmann&amp;rsquo;s Zettelkasten method to a modern audience. Luhmann, a German sociologist, wrote over 70 books and 400 articles using this system.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-concepts&#34;&gt;Key Concepts&lt;/h2&gt;&#xA;&lt;h3 id=&#34;the-slip-box-system&#34;&gt;The Slip-Box System&lt;/h3&gt;&#xA;&lt;p&gt;Luhmann maintained two slip-boxes:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Bibliographical box&lt;/strong&gt;: Quick references to sources&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Main box&lt;/strong&gt;: His own ideas and connections&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;The main box is where the magic happens. Each note is:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Written in complete sentences&lt;/li&gt;&#xA;&lt;li&gt;Self-contained and understandable in isolation&lt;/li&gt;&#xA;&lt;li&gt;Connected to existing notes via explicit links&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;writing-as-thinking&#34;&gt;Writing as Thinking&lt;/h3&gt;&#xA;&lt;p&gt;Ahrens argues that writing is not the &lt;em&gt;output&lt;/em&gt; of thinking but the &lt;em&gt;medium&lt;/em&gt; of thinking. The act of writing forces clarity.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

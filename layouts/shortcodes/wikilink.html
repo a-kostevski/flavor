@@ -1,17 +1,66 @@
+{{- /* Wikilink Shortcode - Zettelkasten-style linking
+     Usage:
+       {{< wikilink "Page Title" >}}
+       {{< wikilink "Page Title" "display text" >}}
+       {{< wikilink id="202412091430" >}}
+       {{< wikilink id="202412091430" "display text" >}}
+
+     Resolution priority: id > title > filename > aliases
+*/ -}}
+
+{{- $id := .Get "id" -}}
 {{- $link := .Get 0 -}}
 {{- $display := .Get 1 | default $link -}}
 {{- $target := "" -}}
+{{- $targetPage := "" -}}
 
-{{- range .Site.RegularPages -}}
-  {{- $filename := path.Base .File.Path -}}
-  {{- $filenameNoExt := strings.TrimSuffix ".md" $filename -}}
-  {{- if or (eq .Title $link) (eq $filenameNoExt $link) -}}
-    {{- $target = .RelPermalink -}}
+{{- /* If id parameter provided, search by id first */ -}}
+{{- if $id -}}
+  {{- $display = $display | default $id -}}
+  {{- range .Site.RegularPages -}}
+    {{- if eq (string .Params.id) (string $id) -}}
+      {{- $target = .RelPermalink -}}
+      {{- $targetPage = . -}}
+      {{- $display = $display | default .Title -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* If no id or not found by id, search by title/filename/aliases */ -}}
+{{- if and (not $target) $link -}}
+  {{- range .Site.RegularPages -}}
+    {{- $filename := path.Base .File.Path -}}
+    {{- $filenameNoExt := strings.TrimSuffix ".md" $filename -}}
+    {{- $found := false -}}
+
+    {{- /* Match by title */ -}}
+    {{- if eq .Title $link -}}
+      {{- $found = true -}}
+    {{- end -}}
+
+    {{- /* Match by filename */ -}}
+    {{- if eq $filenameNoExt $link -}}
+      {{- $found = true -}}
+    {{- end -}}
+
+    {{- /* Match by aliases */ -}}
+    {{- with .Params.aliases -}}
+      {{- range . -}}
+        {{- if eq . $link -}}
+          {{- $found = true -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- if $found -}}
+      {{- $target = .RelPermalink -}}
+      {{- $targetPage = . -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
 
 {{- if $target -}}
-<a href="{{ $target }}" class="wikilink text-blue-600 dark:text-blue-400 hover:underline">{{ $display }}</a>
+<a href="{{ $target }}" class="wikilink text-blue-600 dark:text-blue-400 hover:underline" data-wikilink-target="{{ $target }}">{{ $display }}</a>
 {{- else -}}
-<span class="wikilink wikilink-broken text-gray-400 dark:text-gray-600 line-through cursor-not-allowed" title="Page not found">{{ $display }}</span>
+<span class="wikilink wikilink-broken text-gray-400 dark:text-gray-600 line-through cursor-not-allowed" title="Page not found: {{ $link | default $id }}">{{ $display }}</span>
 {{- end -}}

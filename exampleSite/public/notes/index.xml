@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes on Flavor Theme Demo</title>
+    <link>http://localhost:1313/notes/</link>
+    <description>Recent content in Notes on Flavor Theme Demo</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 09 Dec 2024 14:15:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Thought: Links vs. Tags</title>
+      <link>http://localhost:1313/notes/thought-on-linking/</link>
+      <pubDate>Mon, 09 Dec 2024 14:15:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/thought-on-linking/</guid>
+      <description>&lt;p&gt;Quick observation while organizing notes today:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Tags&lt;/strong&gt; = &amp;ldquo;this note is &lt;em&gt;about&lt;/em&gt; X&amp;rdquo;&#xA;&lt;strong&gt;Links&lt;/strong&gt; = &amp;ldquo;this note &lt;em&gt;relates to&lt;/em&gt; that specific note&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;Tags create broad buckets. Links create specific bridges.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve been over-using tags when I should be linking. A note about [[Spaced Repetition]] doesn&amp;rsquo;t just need the tag &amp;ldquo;learning&amp;rdquo; - it needs a direct link to [[Progressive Summarization]] because they&amp;rsquo;re related techniques.&lt;/p&gt;&#xA;&lt;p&gt;The [[Note-Taking|knowledge graph]] shows this clearly: tags create dense clusters, links create meaningful paths between clusters.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2024-12-09</title>
+      <link>http://localhost:1313/notes/daily/2024-12-09/</link>
+      <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/daily/2024-12-09/</guid>
+      <description>&lt;h2 id=&#34;morning&#34;&gt;Morning&lt;/h2&gt;&#xA;&lt;p&gt;Wrote [[Thought: Links vs. Tags]] after yesterday&amp;rsquo;s cleanup. The distinction is clearer now:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Tags = broad categorization&lt;/li&gt;&#xA;&lt;li&gt;Links = specific relationships&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;afternoon&#34;&gt;Afternoon&lt;/h2&gt;&#xA;&lt;p&gt;The knowledge base feels alive now. When I open a note, the backlinks show me connections I forgot I made. Exactly what [[How to Take Smart Notes|Ahrens]] describes.&lt;/p&gt;&#xA;&lt;h2 id=&#34;whats-working&#34;&gt;What&amp;rsquo;s Working&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Daily notes as an entry point&lt;/li&gt;&#xA;&lt;li&gt;MOCs as navigation hubs&lt;/li&gt;&#xA;&lt;li&gt;The [[Note-Taking|graph]] for serendipitous discovery&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;what-needs-work&#34;&gt;What Needs Work&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;More permanent notes (too many fleeting ones)&lt;/li&gt;&#xA;&lt;li&gt;Better link density&lt;/li&gt;&#xA;&lt;li&gt;Regular review sessions&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>An Unlinked Note</title>
+      <link>http://localhost:1313/notes/orphan-demo/</link>
+      <pubDate>Mon, 09 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/orphan-demo/</guid>
+      <description>&lt;p&gt;This note demonstrates the &lt;strong&gt;orphan detection&lt;/strong&gt; feature.&lt;/p&gt;&#xA;&lt;p&gt;No other note links to this page, so it appears on the &lt;a href=&#34;http://localhost:1313/orphans/&#34;&gt;Orphan Notes&lt;/a&gt; page.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-orphan-detection-matters&#34;&gt;Why Orphan Detection Matters&lt;/h2&gt;&#xA;&lt;p&gt;In a Zettelkasten system, value comes from connections. An unlinked note:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Cannot be discovered through browsing&lt;/li&gt;&#xA;&lt;li&gt;Doesn&amp;rsquo;t contribute to the knowledge graph&lt;/li&gt;&#xA;&lt;li&gt;May be forgotten&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The orphan detector surfaces these notes so you can decide to:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Link them&lt;/strong&gt; to relevant notes&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Delete them&lt;/strong&gt; if no longer useful&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Develop them&lt;/strong&gt; into more complete thoughts&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;this-notes-purpose&#34;&gt;This Note&amp;rsquo;s Purpose&lt;/h2&gt;&#xA;&lt;p&gt;This specific note exists only to demonstrate the orphan detection feature. In a real system, you&amp;rsquo;d either integrate it or remove it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Idea: Why Atomic Notes Work</title>
+      <link>http://localhost:1313/notes/idea-atomic-notes/</link>
+      <pubDate>Sun, 08 Dec 2024 09:30:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/idea-atomic-notes/</guid>
+      <description>&lt;p&gt;Just realized why [[The Atomic Notes Principle|atomic notes]] feel so right:&lt;/p&gt;&#xA;&lt;p&gt;When I try to write about two ideas in one note, I get stuck. The note never feels complete. But when I split them, each note writes itself.&lt;/p&gt;&#xA;&lt;p&gt;The constraint isn&amp;rsquo;t limiting - it&amp;rsquo;s &lt;em&gt;liberating&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Maybe like how haiku&amp;rsquo;s strict form produces better poetry than &amp;ldquo;write whatever you want&amp;rdquo;?&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;em&gt;TODO: Develop this into a permanent note about creative constraints. Link to articles about constraint-based creativity.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2024-12-08</title>
+      <link>http://localhost:1313/notes/daily/2024-12-08/</link>
+      <pubDate>Sun, 08 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/daily/2024-12-08/</guid>
+      <description>&lt;h2 id=&#34;morning&#34;&gt;Morning&lt;/h2&gt;&#xA;&lt;p&gt;Had the insight about why [[The Atomic Notes Principle|atomic notes]] work - captured it in [[Idea: Why Atomic Notes Work]]. The constraint is liberating, not limiting.&lt;/p&gt;&#xA;&lt;h2 id=&#34;afternoon&#34;&gt;Afternoon&lt;/h2&gt;&#xA;&lt;p&gt;Cleaned up some tags. Realized I was using tags when I should be using links. Tags for broad categories, links for specific connections.&lt;/p&gt;&#xA;&lt;h2 id=&#34;reflection&#34;&gt;Reflection&lt;/h2&gt;&#xA;&lt;p&gt;A week into building this system, patterns are emerging:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;[[Spaced Repetition]] happens naturally when you traverse the graph&lt;/li&gt;&#xA;&lt;li&gt;[[Evergreen Notes]] really do grow - I keep adding to them&lt;/li&gt;&#xA;&lt;li&gt;The hard part is [[Progressive Summarization|distilling]], not capturing&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>2024-12-07</title>
+      <link>http://localhost:1313/notes/daily/2024-12-07/</link>
+      <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/daily/2024-12-07/</guid>
+      <description>&lt;h2 id=&#34;morning&#34;&gt;Morning&lt;/h2&gt;&#xA;&lt;p&gt;Working on [[Evergreen Notes]]. The idea that notes compound in value over time is compelling. Like investments - small consistent additions lead to big results.&lt;/p&gt;&#xA;&lt;h2 id=&#34;afternoon&#34;&gt;Afternoon&lt;/h2&gt;&#xA;&lt;p&gt;Explored the full-page graph view today. Interesting to see clusters forming around [[Note-Taking]] and [[Learning]].&lt;/p&gt;&#xA;&lt;h2 id=&#34;tasks-done&#34;&gt;Tasks Done&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Link spaced repetition to progressive summarization&lt;/li&gt;&#xA;&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Add literature notes from Ahrens book&lt;/li&gt;&#xA;&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Create note on retrieval practice&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>2024-12-06</title>
+      <link>http://localhost:1313/notes/daily/2024-12-06/</link>
+      <pubDate>Fri, 06 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/daily/2024-12-06/</guid>
+      <description>&lt;h2 id=&#34;morning&#34;&gt;Morning&lt;/h2&gt;&#xA;&lt;p&gt;Re-read [[As We May Think]]. Bush&amp;rsquo;s 1945 vision is remarkably accurate. We have the tools he imagined - now it&amp;rsquo;s about using them well.&lt;/p&gt;&#xA;&lt;h2 id=&#34;afternoon&#34;&gt;Afternoon&lt;/h2&gt;&#xA;&lt;p&gt;Added more links between notes. The [[Bidirectional Linking|backlinks]] section is becoming useful - I can see how ideas connect from both directions.&lt;/p&gt;&#xA;&lt;h2 id=&#34;ideas&#34;&gt;Ideas&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Should create a note about &amp;ldquo;reading vs. thinking&amp;rdquo; - consuming information isn&amp;rsquo;t the same as processing it&lt;/li&gt;&#xA;&lt;li&gt;The [[Learning|learning MOC]] needs more structure&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>2024-12-05</title>
+      <link>http://localhost:1313/notes/daily/2024-12-05/</link>
+      <pubDate>Thu, 05 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/daily/2024-12-05/</guid>
+      <description>&lt;h2 id=&#34;morning&#34;&gt;Morning&lt;/h2&gt;&#xA;&lt;p&gt;Started reading about [[Progressive Summarization]]. The layered approach makes sense - don&amp;rsquo;t process everything upfront, wait until you need it.&lt;/p&gt;&#xA;&lt;h2 id=&#34;afternoon&#34;&gt;Afternoon&lt;/h2&gt;&#xA;&lt;p&gt;Working on setting up this knowledge base. The [[Note-Taking|graph visualization]] is starting to look interesting now that I have some connected notes.&lt;/p&gt;&#xA;&lt;h2 id=&#34;evening&#34;&gt;Evening&lt;/h2&gt;&#xA;&lt;p&gt;Quick thought: the constraint of [[The Atomic Notes Principle|atomic notes]] feels similar to the constraint of daily notes. Both force focus.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Progressive Summarization</title>
+      <link>http://localhost:1313/notes/progressive-summarization/</link>
+      <pubDate>Thu, 05 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/progressive-summarization/</guid>
+      <description>&lt;p&gt;Progressive summarization is Tiago Forte&amp;rsquo;s method for extracting value from notes over time. Instead of processing everything upfront, you distill notes progressively as you use them.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-layers&#34;&gt;The Layers&lt;/h2&gt;&#xA;&lt;p&gt;Each pass adds a layer of highlighting:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Layer 0&lt;/strong&gt;: Original content (capture)&#xA;&lt;strong&gt;Layer 1&lt;/strong&gt;: Bold the most interesting passages&#xA;&lt;strong&gt;Layer 2&lt;/strong&gt;: Highlight the bolded passages that stand out&#xA;&lt;strong&gt;Layer 3&lt;/strong&gt;: Write a brief summary at the top&#xA;&lt;strong&gt;Layer 4&lt;/strong&gt;: Remix into your own original content&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Spaced Repetition</title>
+      <link>http://localhost:1313/notes/spaced-repetition/</link>
+      <pubDate>Wed, 04 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/spaced-repetition/</guid>
+      <description>&lt;p&gt;Spaced repetition is a learning technique based on the spacing effect: we remember things better when we review them at increasing intervals rather than cramming.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-science&#34;&gt;The Science&lt;/h2&gt;&#xA;&lt;p&gt;When you learn something new, the memory decays over time. Each review strengthens the memory and slows the decay rate. By timing reviews just before you&amp;rsquo;d forget, you maximize retention with minimum effort.&lt;/p&gt;&#xA;&lt;p&gt;The optimal intervals follow a pattern:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;First review: 1 day&lt;/li&gt;&#xA;&lt;li&gt;Second review: 3 days&lt;/li&gt;&#xA;&lt;li&gt;Third review: 7 days&lt;/li&gt;&#xA;&lt;li&gt;Fourth review: 14 days&lt;/li&gt;&#xA;&lt;li&gt;And so on, roughly doubling each time&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;application-to-note-taking&#34;&gt;Application to Note-Taking&lt;/h2&gt;&#xA;&lt;p&gt;Spaced repetition complements [[Evergreen Notes]] naturally. Each time you revisit a note to add links or refine content, you&amp;rsquo;re reinforcing that knowledge.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bidirectional Linking</title>
+      <link>http://localhost:1313/notes/bidirectional-linking/</link>
+      <pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/bidirectional-linking/</guid>
+      <description>&lt;p&gt;Bidirectional linking means that when note A links to note B, note B automatically knows about and displays the connection back to A. This simple mechanism transforms how we navigate and discover knowledge.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-backlinks-matter&#34;&gt;Why Backlinks Matter&lt;/h2&gt;&#xA;&lt;p&gt;Traditional links are one-way streets. You know where you&amp;rsquo;re going, but you can&amp;rsquo;t see where you came from. Backlinks complete the picture.&lt;/p&gt;&#xA;&lt;p&gt;Consider a note about &amp;ldquo;Machine Learning&amp;rdquo;. Without backlinks, you only see what ML links to. With backlinks, you discover:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Evergreen Notes</title>
+      <link>http://localhost:1313/notes/evergreen-notes/</link>
+      <pubDate>Mon, 02 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/evergreen-notes/</guid>
+      <description>&lt;p&gt;Evergreen notes are notes designed to grow and improve over time. Unlike fleeting captures or project-specific documentation, evergreen notes are investments in your future thinking.&lt;/p&gt;&#xA;&lt;h2 id=&#34;characteristics&#34;&gt;Characteristics&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Concept-oriented&lt;/strong&gt;: Written about ideas, not sources or events. A note titled &amp;ldquo;Spaced Repetition&amp;rdquo; is evergreen; &amp;ldquo;Notes from Chapter 3&amp;rdquo; is not.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Densely linked&lt;/strong&gt;: Connected to many other notes, forming a web of knowledge. Each new connection adds context and value.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Written for yourself&lt;/strong&gt;: In your own words, reflecting your understanding. Not quotes or summaries, but synthesis.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Learning</title>
+      <link>http://localhost:1313/notes/moc-learning/</link>
+      <pubDate>Mon, 02 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/moc-learning/</guid>
+      <description>&lt;p&gt;This is a &lt;strong&gt;Map of Content&lt;/strong&gt; for notes about how we learn effectively.&lt;/p&gt;&#xA;&lt;h2 id=&#34;memory-and-retention&#34;&gt;Memory and Retention&lt;/h2&gt;&#xA;&lt;p&gt;How to remember what you learn:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[Spaced Repetition]] - Timing reviews for optimal retention&lt;/li&gt;&#xA;&lt;li&gt;[[Progressive Summarization]] - Building understanding through layers&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;note-taking-for-learning&#34;&gt;Note-Taking for Learning&lt;/h2&gt;&#xA;&lt;p&gt;Writing as a learning tool:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[Evergreen Notes]] - Notes that compound in value&lt;/li&gt;&#xA;&lt;li&gt;[[The Atomic Notes Principle]] - Clarity through constraint&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;historical-context&#34;&gt;Historical Context&lt;/h2&gt;&#xA;&lt;p&gt;The evolution of knowledge tools:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[As We May Think]] - The original vision for knowledge management&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;related-maps&#34;&gt;Related Maps&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[Note-Taking]] - Specific techniques for capturing knowledge&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;my-learning-philosophy&#34;&gt;My Learning Philosophy&lt;/h2&gt;&#xA;&lt;p&gt;Learning isn&amp;rsquo;t about consuming information - it&amp;rsquo;s about building connections. Each new concept should link to existing knowledge, strengthening both.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Note-Taking</title>
+      <link>http://localhost:1313/notes/moc-note-taking/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/moc-note-taking/</guid>
+      <description>&lt;p&gt;This is a &lt;strong&gt;Map of Content&lt;/strong&gt; organizing my notes about note-taking systems and personal knowledge management.&lt;/p&gt;&#xA;&lt;h2 id=&#34;core-principles&#34;&gt;Core Principles&lt;/h2&gt;&#xA;&lt;p&gt;The foundation of effective note-taking:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[The Atomic Notes Principle]] - One idea per note&lt;/li&gt;&#xA;&lt;li&gt;[[Evergreen Notes]] - Notes that grow over time&lt;/li&gt;&#xA;&lt;li&gt;[[Bidirectional Linking]] - Two-way connections between notes&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;techniques&#34;&gt;Techniques&lt;/h2&gt;&#xA;&lt;p&gt;Methods for processing and organizing knowledge:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[Progressive Summarization]] - Distilling notes over multiple passes&lt;/li&gt;&#xA;&lt;li&gt;[[Spaced Repetition]] - Reviewing at optimal intervals&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;sources-and-inspiration&#34;&gt;Sources and Inspiration&lt;/h2&gt;&#xA;&lt;p&gt;Where these ideas come from:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Atomic Notes Principle</title>
+      <link>http://localhost:1313/notes/atomic-notes-principle/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/atomic-notes-principle/</guid>
+      <description>&lt;p&gt;The atomic notes principle states that each note should contain exactly one idea. This constraint forces clarity and enables powerful connections.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-atomicity-matters&#34;&gt;Why Atomicity Matters&lt;/h2&gt;&#xA;&lt;p&gt;When a note contains multiple ideas, linking becomes ambiguous. Does a link point to idea A or idea B? By keeping notes atomic, every link has a clear, unambiguous target.&lt;/p&gt;&#xA;&lt;p&gt;Atomic notes are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Self-contained&lt;/strong&gt;: Understandable without context&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Linkable&lt;/strong&gt;: Can be connected precisely&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Reusable&lt;/strong&gt;: Can appear in multiple contexts&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Evolvable&lt;/strong&gt;: Can be refined independently&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;the-test&#34;&gt;The Test&lt;/h2&gt;&#xA;&lt;p&gt;Ask yourself: &amp;ldquo;Can I summarize this note in one sentence?&amp;rdquo; If you need multiple sentences covering different topics, the note should be split.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>As We May Think</title>
+      <link>http://localhost:1313/notes/as-we-may-think/</link>
+      <pubDate>Wed, 20 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/as-we-may-think/</guid>
+      <description>&lt;p&gt;In 1945, Vannevar Bush published &amp;ldquo;As We May Think&amp;rdquo; in The Atlantic, describing the &lt;em&gt;Memex&lt;/em&gt; - a hypothetical device for storing and linking personal knowledge.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-memex-vision&#34;&gt;The Memex Vision&lt;/h2&gt;&#xA;&lt;p&gt;Bush imagined a desk-sized device containing:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Microfilm storage of all books and records&lt;/li&gt;&#xA;&lt;li&gt;A mechanism to add personal annotations&lt;/li&gt;&#xA;&lt;li&gt;The ability to create &lt;strong&gt;trails&lt;/strong&gt; between related items&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&amp;ldquo;The human mind operates by association. With one item in its grasp, it snaps instantly to the next that is suggested by the association of thoughts.&amp;rdquo;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to Take Smart Notes</title>
+      <link>http://localhost:1313/notes/how-to-take-smart-notes/</link>
+      <pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/how-to-take-smart-notes/</guid>
+      <description>&lt;p&gt;&lt;em&gt;How to Take Smart Notes&lt;/em&gt; by Sönke Ahrens introduces Niklas Luhmann&amp;rsquo;s Zettelkasten method to a modern audience. Luhmann, a German sociologist, wrote over 70 books and 400 articles using this system.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-concepts&#34;&gt;Key Concepts&lt;/h2&gt;&#xA;&lt;h3 id=&#34;the-slip-box-system&#34;&gt;The Slip-Box System&lt;/h3&gt;&#xA;&lt;p&gt;Luhmann maintained two slip-boxes:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Bibliographical box&lt;/strong&gt;: Quick references to sources&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Main box&lt;/strong&gt;: His own ideas and connections&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;The main box is where the magic happens. Each note is:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Written in complete sentences&lt;/li&gt;&#xA;&lt;li&gt;Self-contained and understandable in isolation&lt;/li&gt;&#xA;&lt;li&gt;Connected to existing notes via explicit links&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;writing-as-thinking&#34;&gt;Writing as Thinking&lt;/h3&gt;&#xA;&lt;p&gt;Ahrens argues that writing is not the &lt;em&gt;output&lt;/em&gt; of thinking but the &lt;em&gt;medium&lt;/em&gt; of thinking. The act of writing forces clarity.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ideas on Flavor Theme Demo</title>
+    <link>http://localhost:55541/tags/ideas/</link>
+    <description>Recent content in Ideas on Flavor Theme Demo</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 09 Dec 2024 14:15:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:55541/tags/ideas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Thought: Links vs. Tags</title>
+      <link>http://localhost:55541/notes/thought-on-linking/</link>
+      <pubDate>Mon, 09 Dec 2024 14:15:00 +0000</pubDate>
+      <guid>http://localhost:55541/notes/thought-on-linking/</guid>
+      <description>&lt;p&gt;Quick observation while organizing notes today:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Tags&lt;/strong&gt; = &amp;ldquo;this note is &lt;em&gt;about&lt;/em&gt; X&amp;rdquo;&#xA;&lt;strong&gt;Links&lt;/strong&gt; = &amp;ldquo;this note &lt;em&gt;relates to&lt;/em&gt; that specific note&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;Tags create broad buckets. Links create specific bridges.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve been over-using tags when I should be linking. A note about [[Spaced Repetition]] doesn&amp;rsquo;t just need the tag &amp;ldquo;learning&amp;rdquo; - it needs a direct link to [[Progressive Summarization]] because they&amp;rsquo;re related techniques.&lt;/p&gt;&#xA;&lt;p&gt;The [[Note-Taking|knowledge graph]] shows this clearly: tags create dense clusters, links create meaningful paths between clusters.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Idea: Why Atomic Notes Work</title>
+      <link>http://localhost:55541/notes/idea-atomic-notes/</link>
+      <pubDate>Sun, 08 Dec 2024 09:30:00 +0000</pubDate>
+      <guid>http://localhost:55541/notes/idea-atomic-notes/</guid>
+      <description>&lt;p&gt;Just realized why [[The Atomic Notes Principle|atomic notes]] feel so right:&lt;/p&gt;&#xA;&lt;p&gt;When I try to write about two ideas in one note, I get stuck. The note never feels complete. But when I split them, each note writes itself.&lt;/p&gt;&#xA;&lt;p&gt;The constraint isn&amp;rsquo;t limiting - it&amp;rsquo;s &lt;em&gt;liberating&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Maybe like how haiku&amp;rsquo;s strict form produces better poetry than &amp;ldquo;write whatever you want&amp;rdquo;?&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;em&gt;TODO: Develop this into a permanent note about creative constraints. Link to articles about constraint-based creativity.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

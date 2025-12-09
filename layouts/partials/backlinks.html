@@ -1,14 +1,136 @@
+{{- /*
+  Backlinks Partial - Zettelkasten-style backlink detection
+
+  Detects links from:
+  1. Wikilink shortcode: {{< wikilink "Page Name" >}}
+  2. Double bracket syntax: [[Page Name]] or [[Page Name|display]]
+  3. ID-based links: [[id:123456]] or {{< wikilink id="123456" >}}
+  4. Standard markdown links: [text](url)
+  5. HTML href patterns
+*/ -}}
+
 {{- if .Site.Params.showBacklinks -}}
 {{- $backlinks := slice -}}
+{{- $backlinkContexts := dict -}}
 {{- $currentPage := . -}}
 {{- $currentRelPermalink := .RelPermalink -}}
+{{- $currentTitle := .Title -}}
+{{- $currentId := .Params.id | default "" -}}
+
+{{- /* Get current page's filename without extension */ -}}
+{{- $currentFilename := "" -}}
+{{- with .File -}}
+  {{- $currentFilename = path.Base .Path | strings.TrimSuffix ".md" -}}
+{{- end -}}
+
+{{- /* Get current page's aliases */ -}}
+{{- $currentAliases := .Params.aliases | default slice -}}
 
 {{- /* Find pages that link to this page */ -}}
 {{- range .Site.RegularPages -}}
   {{- if ne .RelPermalink $currentRelPermalink -}}
-    {{- /* Check if this page's content contains a link to the current page */ -}}
-    {{- if or (findRE (printf `href=["']%s["']` $currentRelPermalink) .RawContent) (findRE (printf `\[.*\]\(%s\)` $currentRelPermalink) .RawContent) (findRE (printf `href=["']%s["']` $currentPage.Permalink) .RawContent) -}}
-      {{- $backlinks = $backlinks | append . -}}
+    {{- $sourcePage := . -}}
+    {{- $content := .RawContent -}}
+    {{- $found := false -}}
+    {{- $context := "" -}}
+
+    {{- /* 1. Check for wikilink shortcode by title */ -}}
+    {{- $shortcodePattern := printf `\{\{<\s*wikilink\s+"(%s)"` $currentTitle -}}
+    {{- if findRE $shortcodePattern $content -}}
+      {{- $found = true -}}
+      {{- $matches := findRE (printf `.{0,40}%s.{0,40}` $shortcodePattern) $content 1 -}}
+      {{- with $matches -}}
+        {{- $context = index . 0 -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- /* 2. Check for wikilink shortcode by filename */ -}}
+    {{- if and (not $found) $currentFilename -}}
+      {{- $filenamePattern := printf `\{\{<\s*wikilink\s+"(%s)"` $currentFilename -}}
+      {{- if findRE $filenamePattern $content -}}
+        {{- $found = true -}}
+        {{- $matches := findRE (printf `.{0,40}%s.{0,40}` $filenamePattern) $content 1 -}}
+        {{- with $matches -}}
+          {{- $context = index . 0 -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- /* 3. Check for wikilink shortcode by ID */ -}}
+    {{- if and (not $found) $currentId -}}
+      {{- $idPattern := printf `\{\{<\s*wikilink\s+id="%s"` $currentId -}}
+      {{- if findRE $idPattern $content -}}
+        {{- $found = true -}}
+        {{- $matches := findRE (printf `.{0,40}%s.{0,40}` $idPattern) $content 1 -}}
+        {{- with $matches -}}
+          {{- $context = index . 0 -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- /* 4. Check for [[title]] or [[title|display]] syntax */ -}}
+    {{- if not $found -}}
+      {{- $bracketPattern := printf `\[\[%s(\|[^\]]+)?\]\]` $currentTitle -}}
+      {{- if findRE $bracketPattern $content -}}
+        {{- $found = true -}}
+        {{- $matches := findRE (printf `.{0,40}%s.{0,40}` $bracketPattern) $content 1 -}}
+        {{- with $matches -}}
+          {{- $context = index . 0 -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- /* 5. Check for [[filename]] syntax */ -}}
+    {{- if and (not $found) $currentFilename -}}
+      {{- $bracketFilenamePattern := printf `\[\[%s(\|[^\]]+)?\]\]` $currentFilename -}}
+      {{- if findRE $bracketFilenamePattern $content -}}
+        {{- $found = true -}}
+        {{- $matches := findRE (printf `.{0,40}%s.{0,40}` $bracketFilenamePattern) $content 1 -}}
+        {{- with $matches -}}
+          {{- $context = index . 0 -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- /* 6. Check for [[id:xxx]] syntax */ -}}
+    {{- if and (not $found) $currentId -}}
+      {{- $bracketIdPattern := printf `\[\[id:%s(\|[^\]]+)?\]\]` $currentId -}}
+      {{- if findRE $bracketIdPattern $content -}}
+        {{- $found = true -}}
+        {{- $matches := findRE (printf `.{0,40}%s.{0,40}` $bracketIdPattern) $content 1 -}}
+        {{- with $matches -}}
+          {{- $context = index . 0 -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- /* 7. Check for aliases */ -}}
+    {{- if not $found -}}
+      {{- range $currentAliases -}}
+        {{- $alias := . -}}
+        {{- $aliasPattern := printf `\[\[%s(\|[^\]]+)?\]\]` $alias -}}
+        {{- if findRE $aliasPattern $content -}}
+          {{- $found = true -}}
+        {{- end -}}
+        {{- $aliasShortcodePattern := printf `\{\{<\s*wikilink\s+"(%s)"` $alias -}}
+        {{- if findRE $aliasShortcodePattern $content -}}
+          {{- $found = true -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- /* 8. Check for standard markdown links and href patterns (original logic) */ -}}
+    {{- if not $found -}}
+      {{- if or (findRE (printf `href=["']%s["']` $currentRelPermalink) $content) (findRE (printf `\]\(%s\)` $currentRelPermalink) $content) (findRE (printf `href=["']%s["']` $currentPage.Permalink) $content) -}}
+        {{- $found = true -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- if $found -}}
+      {{- $backlinks = $backlinks | append $sourcePage -}}
+      {{- if $context -}}
+        {{- $backlinkContexts = merge $backlinkContexts (dict $sourcePage.RelPermalink $context) -}}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
@@ -28,9 +150,16 @@
         <a href="{{ .RelPermalink }}" class="text-blue-600 dark:text-blue-400 hover:underline font-medium">
           {{ .Title }}
         </a>
+        {{- $ctx := index $backlinkContexts .RelPermalink -}}
+        {{- if $ctx -}}
+        <p class="text-xs text-gray-400 dark:text-gray-500 mt-1 font-mono truncate max-w-md" title="{{ $ctx }}">
+          ...{{ $ctx | truncate 80 }}...
+        </p>
+        {{- else -}}
         {{ with .Summary }}
         <p class="text-sm text-gray-500 dark:text-gray-400 mt-1 line-clamp-2">{{ . | truncate 120 }}</p>
         {{ end }}
+        {{- end -}}
       </div>
     </li>
     {{- end -}}

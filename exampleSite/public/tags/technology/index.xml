@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Technology on Flavor Theme Demo</title>
+    <link>http://localhost:55541/tags/technology/</link>
+    <description>Recent content in Technology on Flavor Theme Demo</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 20 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:55541/tags/technology/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>As We May Think</title>
+      <link>http://localhost:55541/notes/as-we-may-think/</link>
+      <pubDate>Wed, 20 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/notes/as-we-may-think/</guid>
+      <description>&lt;p&gt;In 1945, Vannevar Bush published &amp;ldquo;As We May Think&amp;rdquo; in The Atlantic, describing the &lt;em&gt;Memex&lt;/em&gt; - a hypothetical device for storing and linking personal knowledge.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-memex-vision&#34;&gt;The Memex Vision&lt;/h2&gt;&#xA;&lt;p&gt;Bush imagined a desk-sized device containing:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Microfilm storage of all books and records&lt;/li&gt;&#xA;&lt;li&gt;A mechanism to add personal annotations&lt;/li&gt;&#xA;&lt;li&gt;The ability to create &lt;strong&gt;trails&lt;/strong&gt; between related items&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&amp;ldquo;The human mind operates by association. With one item in its grasp, it snaps instantly to the next that is suggested by the association of thoughts.&amp;rdquo;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

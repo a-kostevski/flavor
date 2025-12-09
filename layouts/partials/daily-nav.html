@@ -1,0 +1,96 @@
+{{- /*
+  Daily Notes Navigation Partial
+
+  Provides navigation between daily notes:
+  - Previous day link
+  - Next day link
+  - Jump to today link
+
+  Usage: {{ partial "daily-nav.html" . }}
+*/ -}}
+
+{{- /* Check if this is a daily note (in notes/daily/ path) */ -}}
+{{- $isDailyNote := false -}}
+{{- with .File -}}
+  {{- if strings.Contains .Path "notes/daily/" -}}
+    {{- $isDailyNote = true -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $isDailyNote -}}
+{{- $currentDate := .Date -}}
+
+{{- /* Find previous and next daily notes */ -}}
+{{- $prevDaily := false -}}
+{{- $nextDaily := false -}}
+{{- $dailyNotes := where .Site.RegularPages "Params.tags" "intersect" (slice "daily") -}}
+
+{{- range $dailyNotes.ByDate -}}
+  {{- if .Date.Before $currentDate -}}
+    {{- if or (not $prevDaily) (.Date.After $prevDaily.Date) -}}
+      {{- $prevDaily = . -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if .Date.After $currentDate -}}
+    {{- if or (not $nextDaily) (.Date.Before $nextDaily.Date) -}}
+      {{- $nextDaily = . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Find today's note */ -}}
+{{- $today := now.Format "2006-01-02" -}}
+{{- $todayNote := false -}}
+{{- range $dailyNotes -}}
+  {{- if eq (.Date.Format "2006-01-02") $today -}}
+    {{- $todayNote = . -}}
+  {{- end -}}
+{{- end -}}
+
+<nav class="daily-nav not-prose mb-8 flex items-center justify-between gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+  {{- /* Previous day */ -}}
+  <div class="flex-1">
+    {{ with $prevDaily }}
+    <a href="{{ .RelPermalink }}" class="group flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+      </svg>
+      <span class="text-sm">{{ .Date.Format "Jan 2" }}</span>
+    </a>
+    {{ else }}
+    <span class="text-gray-400 dark:text-gray-600 text-sm">{{ i18n "noPreviousDay" | default "No previous" }}</span>
+    {{ end }}
+  </div>
+
+  {{- /* Today link */ -}}
+  <div class="flex items-center gap-2">
+    {{ if $todayNote }}
+      {{ if ne $todayNote.RelPermalink $.RelPermalink }}
+      <a href="{{ $todayNote.RelPermalink }}" class="px-3 py-1.5 text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors">
+        {{ i18n "today" | default "Today" }}
+      </a>
+      {{ else }}
+      <span class="px-3 py-1.5 text-sm bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-lg">
+        {{ i18n "today" | default "Today" }}
+      </span>
+      {{ end }}
+    {{ else }}
+    <span class="text-xs text-gray-500 dark:text-gray-400">{{ i18n "noTodayNote" | default "No note for today" }}</span>
+    {{ end }}
+  </div>
+
+  {{- /* Next day */ -}}
+  <div class="flex-1 text-right">
+    {{ with $nextDaily }}
+    <a href="{{ .RelPermalink }}" class="group inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+      <span class="text-sm">{{ .Date.Format "Jan 2" }}</span>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </a>
+    {{ else }}
+    <span class="text-gray-400 dark:text-gray-600 text-sm">{{ i18n "noNextDay" | default "No next" }}</span>
+    {{ end }}
+  </div>
+</nav>
+{{- end -}}

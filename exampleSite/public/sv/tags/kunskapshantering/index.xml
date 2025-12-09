@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kunskapshantering on Flavor Theme Demo</title>
+    <link>http://localhost:55541/sv/tags/kunskapshantering/</link>
+    <description>Recent content in Kunskapshantering on Flavor Theme Demo</description>
+    <generator>Hugo</generator>
+    <language>sv-SE</language>
+    <lastBuildDate>Sun, 01 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:55541/sv/tags/kunskapshantering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Anteckningar</title>
+      <link>http://localhost:55541/sv/notes/moc-note-taking/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/sv/notes/moc-note-taking/</guid>
+      <description>&lt;p&gt;Detta är en &lt;strong&gt;Innehållskarta&lt;/strong&gt; som organiserar mina anteckningar om anteckningssystem och personlig kunskapshantering.&lt;/p&gt;&#xA;&lt;h2 id=&#34;grundläggande-principer&#34;&gt;Grundläggande principer&lt;/h2&gt;&#xA;&lt;p&gt;Grunden för effektivt antecknande:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[Principen om atomära anteckningar]] - En idé per anteckning&lt;/li&gt;&#xA;&lt;li&gt;[[Evergreen Notes|Vintergröna anteckningar]] - Anteckningar som växer över tid&lt;/li&gt;&#xA;&lt;li&gt;[[Bidirectional Linking|Dubbelriktad länkning]] - Tvåvägskopplingar mellan anteckningar&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;tekniker&#34;&gt;Tekniker&lt;/h2&gt;&#xA;&lt;p&gt;Metoder för att bearbeta och organisera kunskap:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;[[Progressive Summarization|Progressiv sammanfattning]] - Destillera anteckningar över flera omgångar&lt;/li&gt;&#xA;&lt;li&gt;[[Spaced Repetition|Utspridd repetition]] - Granska med optimala intervall&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;källor-och-inspiration&#34;&gt;Källor och inspiration&lt;/h2&gt;&#xA;&lt;p&gt;Var dessa idéer kommer från:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Principen om atomära anteckningar</title>
+      <link>http://localhost:55541/sv/notes/atomic-notes-principle/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:55541/sv/notes/atomic-notes-principle/</guid>
+      <description>&lt;p&gt;Principen om atomära anteckningar säger att varje anteckning ska innehålla exakt en idé. Denna begränsning tvingar fram klarhet och möjliggör kraftfulla kopplingar.&lt;/p&gt;&#xA;&lt;h2 id=&#34;varför-atomicitet-är-viktigt&#34;&gt;Varför atomicitet är viktigt&lt;/h2&gt;&#xA;&lt;p&gt;När en anteckning innehåller flera idéer blir länkning tvetydig. Pekar en länk på idé A eller idé B? Genom att hålla anteckningar atomära får varje länk ett tydligt, entydigt mål.&lt;/p&gt;&#xA;&lt;p&gt;Atomära anteckningar är:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Fristående&lt;/strong&gt;: Förståeliga utan kontext&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Länkbara&lt;/strong&gt;: Kan kopplas precist&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Återanvändbara&lt;/strong&gt;: Kan dyka upp i flera sammanhang&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Utvecklingsbara&lt;/strong&gt;: Kan förfinas oberoende&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;testet&#34;&gt;Testet&lt;/h2&gt;&#xA;&lt;p&gt;Fråga dig själv: &amp;ldquo;Kan jag sammanfatta denna anteckning i en mening?&amp;rdquo; Om du behöver flera meningar som täcker olika ämnen bör anteckningen delas upp.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
